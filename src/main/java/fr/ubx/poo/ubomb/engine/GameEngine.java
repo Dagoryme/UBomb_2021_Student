@@ -8,11 +8,8 @@ import fr.ubx.poo.ubomb.game.Direction;
 import fr.ubx.poo.ubomb.game.Game;
 import fr.ubx.poo.ubomb.game.Grid;
 import fr.ubx.poo.ubomb.game.Position;
-import fr.ubx.poo.ubomb.go.Bomb;
 import fr.ubx.poo.ubomb.go.character.Player;
-import fr.ubx.poo.ubomb.go.decor.Decor;
-import fr.ubx.poo.ubomb.go.decor.DoorClose;
-import fr.ubx.poo.ubomb.go.decor.DoorOpen;
+import fr.ubx.poo.ubomb.go.decor.*;
 import fr.ubx.poo.ubomb.view.*;
 import javafx.animation.AnimationTimer;
 import javafx.application.Platform;
@@ -131,11 +128,9 @@ public final class GameEngine {
             Position nextPos = direction.nextPosition(player.getPosition());
             Grid grid =game.getGrid();
             Decor decor_door = grid.get(nextPos);
-            if (decor_door instanceof DoorClose && player.getKeys()>=1){
-                Decor decor = new DoorOpen(direction.nextPosition(player.getPosition()));
-                sprites.add(SpriteFactory.create(layer, decor));
+            if (decor_door instanceof Door && player.getKeys()>=1){
+                player.openDoor();
             }
-            player.openDoor();
 
         } else if (input.isBomb()){
             createNewBombs(now);

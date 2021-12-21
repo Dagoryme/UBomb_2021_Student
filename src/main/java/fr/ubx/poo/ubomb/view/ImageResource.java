@@ -92,7 +92,7 @@ public enum ImageResource {
             return valueOf("door_opened.png").image;
         }
         else {
-            return valueOf("door_close.png").image;
+            return valueOf("door_closed.png").image;
         }
     }
 

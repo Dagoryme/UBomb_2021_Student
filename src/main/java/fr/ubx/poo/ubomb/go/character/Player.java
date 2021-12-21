@@ -158,11 +158,10 @@ public class Player extends GameObject implements Movable {
         Grid grid =game.getGrid();
         Decor decor = grid.get(nextPos);
         if (decor != null ){
-            if (keys>0 && decor instanceof DoorClose){
+            if (keys>0 && decor instanceof Door){
                 keys=keys -1;
-                decor.remove();
-                Decor decor_door = new DoorOpen(nextPos);
-                grid.set(nextPos,decor_door);
+                ((Door) decor).setIsOpened(true);
+                decor.setModified(true);
             }
         }
 

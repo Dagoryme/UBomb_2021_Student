@@ -31,9 +31,9 @@ public final class SpriteFactory {
             return new Sprite(layer,  HEART.getImage(), gameObject);
         if (gameObject instanceof Princess)
             return new Sprite(layer,  PRINCESS.getImage(), gameObject);
-        if (gameObject instanceof DoorClose)
+        if (gameObject instanceof Door)
             return new Sprite(layer, DOOR_CLOSED.getImage(), gameObject);
-        if (gameObject instanceof DoorOpen)
+        if (gameObject instanceof Door)
             return new Sprite(layer, DOOR_OPENED.getImage(), gameObject);
         if (gameObject instanceof Box)
             return new Sprite(layer,  BOX.getImage(), gameObject);

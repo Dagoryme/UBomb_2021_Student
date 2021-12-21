@@ -38,9 +38,9 @@ public abstract class GridRepo {
             case Princess:
                 return new Princess(pos);
             case DoorNextClosed:
-                return new DoorClose(pos);
+                return new Door(pos);
             case DoorNextOpened:
-                return new DoorOpen(pos);
+                return new Door(pos);
             case Box:
                 return new Box(pos);
             case Stone:
