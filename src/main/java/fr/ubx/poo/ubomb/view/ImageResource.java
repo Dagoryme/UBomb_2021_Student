@@ -87,5 +87,14 @@ public enum ImageResource {
         return valueOf("BOMB_"+i).image;
     }
 
+    public static Image getDoor(boolean bool){
+        if (bool){
+            return valueOf("door_opened.png").image;
+        }
+        else {
+            return valueOf("door_close.png").image;
+        }
+    }
+
 
 }

@@ -169,7 +169,7 @@ public class Player extends GameObject implements Movable {
             if (keys>0 && decor instanceof DoorClose){
                 keys=keys -1;
                 decor.remove();
-                         }
+            }
         }
 
     }
