@@ -13,7 +13,7 @@ public class GridRepoSample extends GridRepo {
             {Empty, Empty, Empty, Empty, Stone, Box, Stone, Empty, Empty, Stone, Empty, Empty},
             {Empty, Box, Empty, Empty, Stone, Stone, Stone, Empty, Empty, Empty, Empty, Empty},
             {Empty, Empty, Empty, Empty, Empty, Box, Empty, Key, Empty, Stone, Empty, Empty},
-            {Empty, Tree, Empty, Tree, Princess, Empty, Empty, Empty, Empty, Stone, Empty, Empty},
+            {Empty, Tree, Empty, Tree, Empty, Empty, Empty, Empty, Empty, Stone, Empty, Empty},
             {Empty, Empty, Box, Tree, Empty, Empty, Empty, Empty, Empty, Stone, DoorNextClosed, Empty},
             {Empty, Tree, Tree, Tree, Empty, Empty, Empty, Empty, Empty, Stone, Empty, Empty},
             {Empty, Empty, Empty, Empty, Empty, Empty, BombRangeInc, Empty, Empty, Empty, Empty, Empty},
