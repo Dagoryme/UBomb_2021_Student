@@ -8,6 +8,7 @@ import fr.ubx.poo.ubomb.game.Direction;
 import fr.ubx.poo.ubomb.game.Game;
 import fr.ubx.poo.ubomb.go.character.Player;
 import fr.ubx.poo.ubomb.go.decor.Decor;
+import fr.ubx.poo.ubomb.go.decor.DoorOpen;
 import fr.ubx.poo.ubomb.view.*;
 import javafx.animation.AnimationTimer;
 import javafx.application.Platform;
@@ -123,6 +124,11 @@ public final class GameEngine {
             player.requestMove(Direction.UP);
         } else if (input.isKey()){
             player.openDoor();
+            Direction direction = player.getDirection();
+            Decor decor = new DoorOpen(direction.nextPosition(player.getPosition()));
+            sprites.add(SpriteFactory.create(layer, decor));
+        } else if (input.isBomb()){
+            player.dropBomb();
         }
         input.clear();
     }

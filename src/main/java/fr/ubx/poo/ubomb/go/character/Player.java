@@ -11,7 +11,14 @@ import fr.ubx.poo.ubomb.go.GameObject;
 import fr.ubx.poo.ubomb.go.Movable;
 import fr.ubx.poo.ubomb.go.decor.*;
 import fr.ubx.poo.ubomb.go.decor.bonus.*;
+import fr.ubx.poo.ubomb.view.Sprite;
+import fr.ubx.poo.ubomb.view.SpriteFactory;
+import javafx.scene.layout.Pane;
 
+import javax.swing.text.html.ImageView;
+import java.awt.*;
+import java.util.LinkedList;
+import java.util.List;
 
 
 public class Player extends GameObject implements Movable {
@@ -146,6 +153,13 @@ public class Player extends GameObject implements Movable {
     }
 
     // Example of methods to define by the player
+    public void dropBomb(){
+        if (bombs > 0){
+            bombs --;
+
+        }
+    }
+
     public void openDoor(){
         Direction direction = getDirection();
         Position nextPos = direction.nextPosition(getPosition());
@@ -155,9 +169,7 @@ public class Player extends GameObject implements Movable {
             if (keys>0 && decor instanceof DoorClose){
                 keys=keys -1;
                 decor.remove();
-                DoorOpen door = new DoorOpen(nextPos);
-                grid.set(nextPos,door);
-            }
+                         }
         }
 
     }
