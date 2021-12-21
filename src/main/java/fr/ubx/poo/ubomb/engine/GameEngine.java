@@ -121,10 +121,8 @@ public final class GameEngine {
             player.requestMove(Direction.RIGHT);
         } else if (input.isMoveUp()) {
             player.requestMove(Direction.UP);
-            input.clear();
         } else if (input.isKey()){
             player.openDoor();
-            input.clear();
         }
         input.clear();
     }

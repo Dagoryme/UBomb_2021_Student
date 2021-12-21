@@ -53,7 +53,7 @@ public class Player extends GameObject implements Movable {
         this.lives = lives;
     }
 
-    public void setKeys(int key){
+    public void setKeys(int keys){
         this.keys = keys;
     }
 
@@ -129,7 +129,10 @@ public class Player extends GameObject implements Movable {
         if (decor instanceof Monster){
             this.lives=this.lives-1;
         }
-
+        Player player = this.game.getPlayer();
+        if (decor instanceof Bonus){
+            ((Bonus) decor).takenBy(player);
+        }
         setPosition(nextPos);
     }
 
@@ -149,7 +152,8 @@ public class Player extends GameObject implements Movable {
         Grid grid =game.getGrid();
         Decor decor = grid.get(nextPos);
         if (decor != null ){
-            if (getKeys()>0 && decor instanceof Door){
+            if (keys>0 && decor instanceof DoorClose){
+                keys=keys -1;
 
             }
         }

@@ -14,4 +14,5 @@ public class Tree extends Decor {
     public boolean isWalkable(Player player) {
         return false;
     }
+
 }

@@ -15,12 +15,8 @@ public class Bomb_NI extends Bonus {
         return true;
     }
 
-    public boolean addbonus(Game game){
-        game.getPlayer().setBombs(game.getPlayer().getBombs()+1);
-        return true;
-    }
-
     public void takenBy(Player player) {
-        player.takeKey();
+        player.setBombs(player.getBombs()+1);
+        remove();
     }
 }

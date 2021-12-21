@@ -14,12 +14,9 @@ public class Bomb_RI extends Bonus {
         return true;
     }
 
-    public boolean addbonus(Game game){
-        game.getPlayer().setBombRange(game.getPlayer().getBombrange()+1);
-        return true;
-    }
 
     public void takenBy(Player player) {
-        player.takeKey();
+        player.setBombRange(player.getBombrange()+1);
+        remove();
     }
 }

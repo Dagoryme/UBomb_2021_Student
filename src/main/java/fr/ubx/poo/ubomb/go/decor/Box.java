@@ -20,4 +20,5 @@ public class Box extends Decor {
     public boolean isWalkable(Player player) {
         return false;
     }
+
 }

@@ -15,4 +15,5 @@ public class Stone extends Decor {
     public boolean isWalkable(Player player) {
         return false;
     }
+
 }

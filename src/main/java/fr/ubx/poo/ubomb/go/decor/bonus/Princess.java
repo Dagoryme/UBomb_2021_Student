@@ -15,6 +15,6 @@ public class Princess extends Bonus {
     }
 
     public void takenBy(Player player) {
-        player.takeKey();
+        return;
     }
 }

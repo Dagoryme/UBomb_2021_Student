@@ -23,7 +23,6 @@ public abstract class GridRepo {
         switch (entityCode) {
             case Empty:
                 return null;
-
             case BombNumberDec:
                 return new Bomb_ND(pos);
             case BombNumberInc:
@@ -39,7 +38,9 @@ public abstract class GridRepo {
             case Princess:
                 return new Princess(pos);
             case DoorNextClosed:
-                return new Door(pos);
+                return new DoorClose(pos);
+            case DoorNextOpened:
+                return new DoorOpen(pos);
             case Box:
                 return new Box(pos);
             case Stone:
@@ -48,10 +49,6 @@ public abstract class GridRepo {
                 return new Tree(pos);
             case Monster:
                 return new Monster(pos);
-
-
-
-
 
             default:
                 return null;

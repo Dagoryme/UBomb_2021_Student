@@ -15,14 +15,11 @@ public class Bomb_ND extends Bonus {
         return true;
     }
 
-    public boolean addbonus(Game game){
-        if (game.getPlayer().getBombs()>1){
-            game.getPlayer().setBombs(game.getPlayer().getBombs()-1);
-        }
-        return true;
-    }
 
     public void takenBy(Player player) {
-        player.takeKey();
+        if (player.getBombs()>1){
+            player.setBombs(player.getBombs()-1);
+            remove();
+        }
     }
 }
