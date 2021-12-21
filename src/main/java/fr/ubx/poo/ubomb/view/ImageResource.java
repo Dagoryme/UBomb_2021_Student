@@ -89,10 +89,10 @@ public enum ImageResource {
 
     public static Image getDoor(boolean bool){
         if (bool){
-            return valueOf("door_opened.png").image;
+            return DOOR_OPENED.image;
         }
         else {
-            return valueOf("door_closed.png").image;
+            return DOOR_CLOSED.image;
         }
     }
 

@@ -75,8 +75,13 @@ public final class GameEngine {
 
         // Create sprites
         for (Decor decor : game.getGrid().values()) {
-            sprites.add(SpriteFactory.create(layer, decor));
-            decor.setModified(true);
+            if (decor instanceof Door){
+                sprites.add(new SpriteDoor(layer,new Door(decor.getPosition())));
+                decor.setModified(true);
+            } else {
+                sprites.add(SpriteFactory.create(layer, decor));
+                decor.setModified(true);
+            }
         }
         sprites.add(new SpritePlayer(layer, player));
     }
@@ -133,7 +138,7 @@ public final class GameEngine {
             }
 
         } else if (input.isBomb()){
-            createNewBombs(now);
+            player.dropBomb(now);
         }
         input.clear();
     }

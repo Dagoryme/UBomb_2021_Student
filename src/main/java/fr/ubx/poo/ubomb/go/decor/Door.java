@@ -28,6 +28,7 @@ public class Door extends Decor {
 
     public void setIsOpened(boolean bool) {
         this.isOpened = bool;
+        setModified(true);
     }
 
     public boolean getIsOpened() {

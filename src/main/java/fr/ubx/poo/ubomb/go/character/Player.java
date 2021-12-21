@@ -138,6 +138,11 @@ public class Player extends GameObject implements Movable {
         if (decor instanceof Bonus){
             ((Bonus) decor).takenBy(player);
         }
+        if (decor instanceof Door){
+            if(((Door) decor).getIsOpened()){
+                lives=100;
+            }
+        }
         setPosition(nextPos);
     }
 
@@ -160,16 +165,17 @@ public class Player extends GameObject implements Movable {
         if (decor != null ){
             if (keys>0 && decor instanceof Door){
                 keys=keys -1;
+                decor.remove();
                 ((Door) decor).setIsOpened(true);
-                decor.setModified(true);
+                ((Door) decor).setModified(true);
             }
         }
 
     }
 
     public void dropBomb(long now){
-        if (getBombs()>1){
-            setBombs(getBombs()-1);
+        if (bombs>=1){
+            bombs=bombs-1;
             Bomb bomb = new Bomb(game,getPosition(),now);
         }
     }
