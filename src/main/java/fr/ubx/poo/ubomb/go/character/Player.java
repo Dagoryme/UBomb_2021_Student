@@ -138,11 +138,6 @@ public class Player extends GameObject implements Movable {
         if (decor instanceof Bonus){
             ((Bonus) decor).takenBy(player);
         }
-        if (decor instanceof Door){
-            if(((Door) decor).getIsOpened()){
-                lives=100;
-            }
-        }
         setPosition(nextPos);
     }
 
@@ -165,7 +160,6 @@ public class Player extends GameObject implements Movable {
         if (decor != null ){
             if (keys>0 && decor instanceof Door){
                 keys=keys -1;
-                decor.remove();
                 ((Door) decor).setIsOpened(true);
                 ((Door) decor).setModified(true);
             }

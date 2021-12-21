@@ -12,12 +12,6 @@ public class Door extends Decor {
         super(position);
     }
 
-
-    @Override
-    public String toString() {
-        return "DoorClose";
-    }
-
     public boolean canBeOpened() {
         return true;
     }

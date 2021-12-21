@@ -22,10 +22,10 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
-
+import java.util.ListIterator;
+import java.util.List;
 import java.util.HashSet;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Set;
 
 
@@ -76,7 +76,7 @@ public final class GameEngine {
         // Create sprites
         for (Decor decor : game.getGrid().values()) {
             if (decor instanceof Door){
-                sprites.add(new SpriteDoor(layer,new Door(decor.getPosition())));
+                sprites.add(new SpriteDoor(layer,decor));
                 decor.setModified(true);
             } else {
                 sprites.add(SpriteFactory.create(layer, decor));
@@ -191,6 +191,7 @@ public final class GameEngine {
 
     private void render() {
         sprites.forEach(Sprite::render);
+
     }
 
     public void start() {
