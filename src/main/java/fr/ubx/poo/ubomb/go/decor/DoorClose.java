@@ -37,20 +37,6 @@ public class DoorClose extends Decor  {
             return this.isOpened;
         }
 
-/*    public boolean getEffect(Game game){
-        if (isPrevious){
-            game.setLevel(game.getLevel()-1);
-            game.loadPreviousLevel(game.getWorldPath(), game.getLevel());
-        }
-        else if (isOpened){
-            game.setLevel(game.getLevel()+1);
-            game.loadNextLevel(game.getWorldPath(), game.getLevel());
-        }
-        return false;
-
-    }
- */
-
         public boolean isWalkable(Player player) {
             if (this.isOpened == true){
                 return true;
