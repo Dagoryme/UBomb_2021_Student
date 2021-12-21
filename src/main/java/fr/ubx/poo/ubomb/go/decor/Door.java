@@ -38,4 +38,9 @@ public class Door extends Decor {
         }
         return false;
     }
+
+    @Override
+    public String toString() {
+        return "Door";
+    }
 }

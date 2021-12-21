@@ -20,6 +20,16 @@ public class Bomb extends GameObject{
         return true;
     }
 
+    public void checkStatus(long now){
+        time = (now-this.init) / 1000000;
+        if (time > 4000){           //explose la bombe au bout de 4 secondes
+            if (hasExploded == false){
+                //boom();
+                setModified(true);
+            }
+        }
+    }
+
     public long getTime(){
         return this.time;
     }

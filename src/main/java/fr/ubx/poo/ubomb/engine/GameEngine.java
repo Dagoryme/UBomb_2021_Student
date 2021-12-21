@@ -8,6 +8,7 @@ import fr.ubx.poo.ubomb.game.Direction;
 import fr.ubx.poo.ubomb.game.Game;
 import fr.ubx.poo.ubomb.game.Grid;
 import fr.ubx.poo.ubomb.game.Position;
+import fr.ubx.poo.ubomb.go.Bomb;
 import fr.ubx.poo.ubomb.go.character.Player;
 import fr.ubx.poo.ubomb.go.decor.*;
 import fr.ubx.poo.ubomb.view.*;
@@ -138,7 +139,10 @@ public final class GameEngine {
             }
 
         } else if (input.isBomb()){
-            player.dropBomb(now);
+            if (player.getBombs()>=1){
+                sprites.add(new SpriteBomb(layer, new Bomb(game,player.getPosition(),now)));
+                player.dropBomb();
+            }
         }
         input.clear();
     }

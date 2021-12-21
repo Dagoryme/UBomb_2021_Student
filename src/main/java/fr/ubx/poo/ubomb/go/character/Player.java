@@ -167,10 +167,9 @@ public class Player extends GameObject implements Movable {
 
     }
 
-    public void dropBomb(long now){
+    public void dropBomb(){
         if (bombs>=1){
             bombs=bombs-1;
-            Bomb bomb = new Bomb(game,getPosition(),now);
         }
     }
 
