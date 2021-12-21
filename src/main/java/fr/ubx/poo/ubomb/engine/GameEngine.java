@@ -8,6 +8,7 @@ import fr.ubx.poo.ubomb.game.Direction;
 import fr.ubx.poo.ubomb.game.Game;
 import fr.ubx.poo.ubomb.game.Grid;
 import fr.ubx.poo.ubomb.game.Position;
+import fr.ubx.poo.ubomb.go.Bomb;
 import fr.ubx.poo.ubomb.go.character.Player;
 import fr.ubx.poo.ubomb.go.decor.Decor;
 import fr.ubx.poo.ubomb.go.decor.DoorClose;
@@ -137,7 +138,7 @@ public final class GameEngine {
             player.openDoor();
 
         } else if (input.isBomb()){
-            player.dropBomb();
+            createNewBombs(now);
         }
         input.clear();
     }

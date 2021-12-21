@@ -5,6 +5,7 @@
 package fr.ubx.poo.ubomb.view;
 
 import fr.ubx.poo.ubomb.go.GameObject;
+import fr.ubx.poo.ubomb.go.Bomb;
 import fr.ubx.poo.ubomb.go.decor.*;
 import fr.ubx.poo.ubomb.go.decor.bonus.*;
 import fr.ubx.poo.ubomb.go.decor.bonus.Key;
@@ -42,10 +43,9 @@ public final class SpriteFactory {
             return new Sprite(layer, STONE.getImage(), gameObject);
         if (gameObject instanceof Tree)
             return new Sprite(layer, TREE.getImage(), gameObject);
-
-
-
-
         throw new RuntimeException("Unsupported sprite for decor " + gameObject);
+    }
+    public static Sprite createBomb(Pane layer, Bomb bomb){
+        return new SpriteBomb(layer, bomb);
     }
 }

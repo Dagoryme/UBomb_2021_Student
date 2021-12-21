@@ -8,12 +8,10 @@ import fr.ubx.poo.ubomb.game.Direction;
 import fr.ubx.poo.ubomb.game.Game;
 import fr.ubx.poo.ubomb.game.Position;
 import fr.ubx.poo.ubomb.go.GameObject;
+import fr.ubx.poo.ubomb.go.Bomb;
 import fr.ubx.poo.ubomb.go.Movable;
 import fr.ubx.poo.ubomb.go.decor.*;
 import fr.ubx.poo.ubomb.go.decor.bonus.*;
-import fr.ubx.poo.ubomb.view.Sprite;
-import fr.ubx.poo.ubomb.view.SpriteFactory;
-import javafx.scene.layout.Pane;
 
 import javax.swing.text.html.ImageView;
 import java.awt.*;
@@ -153,12 +151,6 @@ public class Player extends GameObject implements Movable {
     }
 
     // Example of methods to define by the player
-    public void dropBomb(){
-        if (bombs > 0){
-            bombs --;
-
-        }
-    }
 
     public void openDoor(){
         Direction direction = getDirection();
@@ -169,9 +161,18 @@ public class Player extends GameObject implements Movable {
             if (keys>0 && decor instanceof DoorClose){
                 keys=keys -1;
                 decor.remove();
+                Decor decor_door = new DoorOpen(nextPos);
+                grid.set(nextPos,decor_door);
             }
         }
 
+    }
+
+    public void dropBomb(long now){
+        if (getBombs()>1){
+            setBombs(getBombs()-1);
+            Bomb bomb = new Bomb(game,getPosition(),now);
+        }
     }
 
     public void takeDoor(int gotoLevel) {}
