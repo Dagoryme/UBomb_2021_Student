@@ -63,7 +63,9 @@ public class Bomb extends Decor{
                         decor.remove();
                     }
                 }
-
+                if (nextPos == game.getPlayer().getPosition()){
+                    game.getPlayer().setLives(game.getPlayer().getLives()-1);
+                }
             }
 
 
