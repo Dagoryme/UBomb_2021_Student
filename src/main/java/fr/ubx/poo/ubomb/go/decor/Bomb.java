@@ -21,26 +21,29 @@ public class Bomb extends Decor{
     }
 
     public void checkStatus(long now) {
-        if (now - init_time >= 1000) {
-            this.state = 3;
+            if (now - init_time >= 1000) {
+                this.state = 3;
+            }
+
             if (now - init_time >= 2000) {
                 this.state = 2;
-                if (now - init_time >= 3000) {
-                    this.state = 1;
-                    if (now - init_time >= 4000) {
-                        this.state = 0;
-                        this.hasExploded = true;
-                    }
-                }
             }
+            if (now - init_time >= 3000) {
+                this.state = 1;
+            }
+            setModified(true);
+            if (now - init_time >= 4000) {
+                this.state = 0;
+                this.hasExploded=true;
+            }
+            if (now - init_time >=4500){
+                remove();
+                setModified(false);
+            }
+
         }
-        setModified(true);
-    }
 
     public int getState(){
-        if (this.hasExploded == false) {
-            setModified(true);
-        }
         return this.state;
 
     }

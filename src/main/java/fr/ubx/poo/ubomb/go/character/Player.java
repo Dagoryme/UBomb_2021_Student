@@ -185,9 +185,11 @@ public class Player extends GameObject implements Movable {
 
     }
 
-    public void dropBomb(){
+    public void dropBomb(Bomb bomb){
         if (bombs>=1){
             bombs=bombs-1;
+            Grid grid =game.getGrid();
+            grid.set(getPosition(),bomb);
         }
     }
 
