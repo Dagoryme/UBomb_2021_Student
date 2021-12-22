@@ -67,6 +67,7 @@ public class Bomb extends Decor{
                     game.getPlayer().setLives(game.getPlayer().getLives()-1);
                 }
             }
+            //erwxan
 
 
         }
