@@ -106,6 +106,15 @@ public final class GameEngine {
     private void checkExplosions() {
         for (int i=0;i<bombs.size();i++){
             bombs.get(i).checkStatus(System.currentTimeMillis());
+            if (bombs.get(i).gethasExploded() && bombs.get(i).getState()==5){
+                bombs.get(i).explosion();
+                Grid grid = game.getGrid();
+                if (player.getPosition()==bombs.get(i).getPosition()){
+                    player.setLives(player.getLives()-1);
+                }
+                grid.remove(bombs.get(i).getPosition());
+                bombs.remove(i);
+            }
         }
     }
 
@@ -136,10 +145,9 @@ public final class GameEngine {
             if (decor_door instanceof Door && player.getKeys()>=1){
                 player.openDoor();
             }
-
         } else if (input.isBomb()){
             if (player.getBombs()>=1){
-                Bomb bomb = new Bomb(player.getPosition(),System.currentTimeMillis());
+                Bomb bomb = new Bomb(game,player.getPosition(),System.currentTimeMillis());
                 bomb.setState(3);
                 sprites.add(new SpriteBomb(layer,bomb));
                 bombs.add(bomb);

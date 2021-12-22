@@ -15,6 +15,8 @@ public class Heart extends Bonus implements Takeable {
         return true;
     }
 
+    public boolean isBreakable(){return true;}
+
     public void takenBy(Player player) {
         player.setLives(player.getLives()+1);
         remove();

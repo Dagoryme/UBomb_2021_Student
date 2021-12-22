@@ -15,6 +15,8 @@ public class Bomb_NI extends Bonus {
         return true;
     }
 
+    public boolean isBreakable(){return true;}
+
     public void takenBy(Player player) {
         player.setBombs(player.getBombs()+1);
         remove();
