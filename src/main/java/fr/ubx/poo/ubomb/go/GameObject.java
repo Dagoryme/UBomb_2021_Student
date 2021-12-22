@@ -49,6 +49,7 @@ public abstract class GameObject {
 
     public void remove() {
         deleted = true;
+        setModified(true);
     }
 
     public void explode() {

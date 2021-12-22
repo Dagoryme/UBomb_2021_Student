@@ -77,12 +77,24 @@ public class Player extends GameObject implements Movable {
     }
 
     public boolean canMove(Direction direction) {
-        Position nextPosInMap = direction.nextPosition(getPosition());
-        if (isInMap(nextPosInMap) && isObject(nextPosInMap)) {
+        Position nextPos = direction.nextPosition(getPosition());
+        Grid grid = game.getGrid();
+        Decor decor = grid.get(nextPos);
+        if (isInMap(nextPos) && isObject(nextPos)) {
             return true;
+        }
+        if (decor instanceof Box){
+            Position box = direction.nextPosition(nextPos);
+            if(isInMap(box) && isEmpty(box)){
+                decor.setPosition(box);
+                grid.remove(nextPos);
+                grid.set(box,decor);
+                return true;
+            }
         }
         return false;
     }
+
 
     public boolean isInMap(Position pos){
         Grid grid=game.getGrid();
@@ -99,6 +111,15 @@ public class Player extends GameObject implements Movable {
             return false;
         }
         return true;
+    }
+
+    public boolean isEmpty(Position pos){
+        Grid grid = game.getGrid();
+        Decor decor = grid.get(pos);
+        if(decor == null){
+            return true;
+        }
+        return false;
     }
 
     public boolean isObject(Position pos){
@@ -125,6 +146,7 @@ public class Player extends GameObject implements Movable {
         Position nextPos = direction.nextPosition(getPosition());
         Grid grid = game.getGrid();
         Decor decor = grid.get(nextPos);
+
         if (decor instanceof Monster){
             this.lives=this.lives-1;
         }
@@ -145,6 +167,8 @@ public class Player extends GameObject implements Movable {
     }
 
     // Example of methods to define by the player
+
+
 
     public void openDoor(){
         Direction direction = getDirection();
