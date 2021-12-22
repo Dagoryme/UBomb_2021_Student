@@ -1,20 +1,19 @@
 package fr.ubx.poo.ubomb.view;
 
-import fr.ubx.poo.ubomb.game.Direction;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
-import fr.ubx.poo.ubomb.go.Bomb;
+import fr.ubx.poo.ubomb.go.decor.*;
 
 
 public class SpriteBomb extends Sprite {
-    public SpriteBomb(Pane layer, Bomb bomb) {
-        super(layer, null, bomb);
+    public SpriteBomb(Pane layer, Decor decor) {
+        super(layer, null, decor);
     }
 
     public void updateImage() {
         Bomb bomb = (Bomb) getGameObject();
-        System.out.println("labomb");
         int i = (int) bomb.getTime();
+        System.out.println(i);
         Image image = getImage(i);
         setImage(image);
     }

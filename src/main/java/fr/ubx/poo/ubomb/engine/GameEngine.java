@@ -8,7 +8,6 @@ import fr.ubx.poo.ubomb.game.Direction;
 import fr.ubx.poo.ubomb.game.Game;
 import fr.ubx.poo.ubomb.game.Grid;
 import fr.ubx.poo.ubomb.game.Position;
-import fr.ubx.poo.ubomb.go.Bomb;
 import fr.ubx.poo.ubomb.go.character.Player;
 import fr.ubx.poo.ubomb.go.decor.*;
 import fr.ubx.poo.ubomb.view.*;
@@ -23,11 +22,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
-import java.util.ListIterator;
-import java.util.List;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Set;
+import java.util.*;
 
 
 public final class GameEngine {
@@ -108,6 +103,7 @@ public final class GameEngine {
     }
 
     private void checkExplosions() {
+
     }
 
     private void createNewBombs(long now) {
@@ -140,7 +136,7 @@ public final class GameEngine {
 
         } else if (input.isBomb()){
             if (player.getBombs()>=1){
-                sprites.add(new SpriteBomb(layer, new Bomb(game,player.getPosition(),now)));
+                sprites.add(new SpriteBomb(layer,new Bomb(game,player.getPosition(),now)));
                 player.dropBomb();
             }
         }

@@ -5,7 +5,6 @@
 package fr.ubx.poo.ubomb.view;
 
 import fr.ubx.poo.ubomb.go.GameObject;
-import fr.ubx.poo.ubomb.go.Bomb;
 import fr.ubx.poo.ubomb.go.decor.*;
 import fr.ubx.poo.ubomb.go.decor.bonus.*;
 import fr.ubx.poo.ubomb.go.decor.bonus.Key;
@@ -31,10 +30,6 @@ public final class SpriteFactory {
             return new Sprite(layer,  HEART.getImage(), gameObject);
         if (gameObject instanceof Princess)
             return new Sprite(layer,  PRINCESS.getImage(), gameObject);
-        if (gameObject instanceof Door)
-            return new Sprite(layer, DOOR_CLOSED.getImage(), gameObject);
-        if (gameObject instanceof Door)
-            return new Sprite(layer, DOOR_OPENED.getImage(), gameObject);
         if (gameObject instanceof Box)
             return new Sprite(layer,  BOX.getImage(), gameObject);
         if (gameObject instanceof Monster)
@@ -44,8 +39,5 @@ public final class SpriteFactory {
         if (gameObject instanceof Tree)
             return new Sprite(layer, TREE.getImage(), gameObject);
         throw new RuntimeException("Unsupported sprite for decor " + gameObject);
-    }
-    public static Sprite createBomb(Pane layer, Bomb bomb){
-        return new SpriteBomb(layer, bomb);
     }
 }

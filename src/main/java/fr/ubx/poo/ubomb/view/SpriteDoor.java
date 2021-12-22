@@ -1,6 +1,5 @@
 package fr.ubx.poo.ubomb.view;
 
-import fr.ubx.poo.ubomb.go.Bomb;
 import fr.ubx.poo.ubomb.go.decor.Door;
 import fr.ubx.poo.ubomb.go.decor.*;
 import javafx.scene.image.Image;

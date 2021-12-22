@@ -4,9 +4,11 @@
 
 package fr.ubx.poo.ubomb.view;
 
+import fr.ubx.poo.ubomb.game.Grid;
 import fr.ubx.poo.ubomb.game.Position;
 import fr.ubx.poo.ubomb.go.GameObject;
-import fr.ubx.poo.ubomb.go.decor.Door;
+import fr.ubx.poo.ubomb.go.decor.Decor;
+import fr.ubx.poo.ubomb.go.decor.Bomb;
 import javafx.scene.effect.Effect;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -61,6 +63,10 @@ public class Sprite {
             imageView.setY(getPosition().getY() * size);
             layer.getChildren().add(imageView);
             gameObject.setModified(false);
+            if (gameObject instanceof Bomb){
+                gameObject.setModified(true);
+            }
+
         }
     }
 
