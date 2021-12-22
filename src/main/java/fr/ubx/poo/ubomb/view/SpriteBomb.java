@@ -13,7 +13,6 @@ public class SpriteBomb extends Sprite {
     public void updateImage() {
         Bomb bomb = (Bomb) getGameObject();
         int i = (int) bomb.getTime();
-        System.out.println(i);
         Image image = getImage(i);
         setImage(image);
     }

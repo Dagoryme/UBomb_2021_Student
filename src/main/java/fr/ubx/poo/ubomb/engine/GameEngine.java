@@ -37,6 +37,7 @@ public final class GameEngine {
     private StatusBar statusBar;
     private Pane layer;
     private Input input;
+    private List <Bomb> bombs = new LinkedList<>();
 
 
     public GameEngine(final String windowTitle, Game game, final Stage stage) {
