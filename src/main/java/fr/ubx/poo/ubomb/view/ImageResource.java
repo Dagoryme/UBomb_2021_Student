@@ -81,6 +81,10 @@ public enum ImageResource {
         return valueOf("MONSTER_" + direction).image;
     }
 
+    public static Image getBox(){
+        return BOX.image;
+    }
+
     public static Image getBomb(int i) {
         if (i < 0 || i > 3)
             throw new IllegalArgumentException();
