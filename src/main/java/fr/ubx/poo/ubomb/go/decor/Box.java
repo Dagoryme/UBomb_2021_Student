@@ -21,4 +21,6 @@ public class Box extends Decor {
         return false;
     }
 
+    public boolean isBreakable(){return true;}
+
 }

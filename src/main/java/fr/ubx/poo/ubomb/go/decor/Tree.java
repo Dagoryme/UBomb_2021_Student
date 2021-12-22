@@ -15,4 +15,6 @@ public class Tree extends Decor {
         return false;
     }
 
+    public boolean isBreakable(){return false;}
+
 }

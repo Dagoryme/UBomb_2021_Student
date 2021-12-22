@@ -1,7 +1,10 @@
 package fr.ubx.poo.ubomb.go.decor;
 
+import fr.ubx.poo.ubomb.game.Direction;
 import fr.ubx.poo.ubomb.game.Game;
 import fr.ubx.poo.ubomb.game.Position;
+import fr.ubx.poo.ubomb.game.Direction;
+import fr.ubx.poo.ubomb.game.Grid;
 import fr.ubx.poo.ubomb.go.character.Player;
 
 public class Bomb extends Decor{
@@ -11,8 +14,8 @@ public class Bomb extends Decor{
     private boolean hasExploded;
 
 
-    public Bomb(Position position, long now){
-        super(position);
+    public Bomb(Game game,Position position, long now){
+        super(game,position);
         this.init_time = now;
     }
 
@@ -37,11 +40,35 @@ public class Bomb extends Decor{
                 this.hasExploded=true;
             }
             if (now - init_time >=4500){
+                this.state=5;
                 remove();
                 setModified(false);
             }
+    }
+
+    public void explosion(){
+        Grid grid = game.getGrid();
+        int range = game.getPlayer().getBombrange();
+        Decor decor;
+        for (int i=0;i<4;i++){
+            Direction direction = Direction.values()[i];
+            Position nextPos = direction.nextPosition(getPosition());
+            for (int j = 0; j<range;j++){
+                decor = grid.get(nextPos);
+                if (decor!=null){
+                    if (decor.isBreakable()==false){
+                        break;
+                    }
+                    else if (decor.isBreakable()){
+                        decor.remove();
+                    }
+                }
+
+            }
+
 
         }
+    }
 
     public int getState(){
         return this.state;
@@ -60,4 +87,10 @@ public class Bomb extends Decor{
         return "Bomb";
     }
 
+    public boolean isBreakable(){return false;}
+
+    @Override
+    public Position getPosition() {
+        return super.getPosition();
+    }
 }

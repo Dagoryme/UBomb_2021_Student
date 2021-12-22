@@ -14,6 +14,8 @@ public class Princess extends Bonus {
         return true;
     }
 
+    public boolean isBreakable(){return false;}
+
     public void takenBy(Player player) {
         return;
     }

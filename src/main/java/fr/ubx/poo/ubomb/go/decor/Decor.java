@@ -27,4 +27,6 @@ public abstract class Decor extends GameObject{
     public boolean isWalkable(Player player) {
         return false;
     }
+
+    public boolean isBreakable(){return false;}
 }

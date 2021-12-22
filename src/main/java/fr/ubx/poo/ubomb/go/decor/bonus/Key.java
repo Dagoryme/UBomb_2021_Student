@@ -19,6 +19,8 @@ public class Key extends Bonus implements Takeable {
         return true;
     }
 
+    public boolean isBreakable(){return false;}
+
     public void takenBy(Player player) {
         player.setKeys(player.getKeys()+1);
         remove();

@@ -15,6 +15,8 @@ public class Bomb_ND extends Bonus {
         return true;
     }
 
+    public boolean isBreakable(){return true;}
+
 
     public void takenBy(Player player) {
         if (player.getBombs()>1){
