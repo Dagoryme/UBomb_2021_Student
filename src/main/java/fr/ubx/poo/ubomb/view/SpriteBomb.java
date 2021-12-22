@@ -14,18 +14,12 @@ public class SpriteBomb extends Sprite {
         Bomb bomb = (Bomb) getGameObject();
         bomb.checkStatus(System.currentTimeMillis());
         boolean b = bomb.gethasExploded();
-        System.out.println(bomb.getState());
-        if (b){
-            Image image = ImageResource.getExplosion();
-            setImage(image);
-        }else {
-            Image image = getImage(bomb.getState());
-            setImage(image);
-        }
+        Image image = getImage(bomb.getState(),b);
+        setImage(image);
     }
 
-    public Image getImage(int i) {
-        return ImageResource.getBomb(i);
+    public Image getImage(int i,boolean b) {
+        return ImageResource.getBomb(i,b);
     }
 }
 
