@@ -37,7 +37,7 @@ public final class GameEngine {
     private StatusBar statusBar;
     private Pane layer;
     private Input input;
-    private List <Bomb> bombs = new LinkedList<>();
+    private List <Sprite> spriteBombs = new LinkedList<>();
 
 
     public GameEngine(final String windowTitle, Game game, final Stage stage) {
@@ -137,7 +137,9 @@ public final class GameEngine {
 
         } else if (input.isBomb()){
             if (player.getBombs()>=1){
-                sprites.add(new SpriteBomb(layer,new Bomb(game,player.getPosition(),now)));
+                Bomb bomb = new Bomb(player.getPosition(),System.currentTimeMillis());
+                bomb.setState(3);
+                spriteBombs.add(new SpriteBomb(layer,bomb));
                 player.dropBomb();
             }
         }
@@ -192,7 +194,7 @@ public final class GameEngine {
 
     private void render() {
         sprites.forEach(Sprite::render);
-
+        spriteBombs.forEach(Sprite::render);
     }
 
     public void start() {

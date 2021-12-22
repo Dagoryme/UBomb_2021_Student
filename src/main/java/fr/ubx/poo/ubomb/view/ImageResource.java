@@ -87,6 +87,10 @@ public enum ImageResource {
         return valueOf("BOMB_"+i).image;
     }
 
+    public static Image getExplosion(){
+        return EXPLOSION.image;
+    }
+
     public static Image getDoor(boolean bool){
         if (bool){
             return DOOR_OPENED.image;

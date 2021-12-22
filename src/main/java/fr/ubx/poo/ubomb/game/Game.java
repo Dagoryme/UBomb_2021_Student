@@ -7,11 +7,13 @@ package fr.ubx.poo.ubomb.game;
 
 import fr.ubx.poo.ubomb.go.GameObject;
 import fr.ubx.poo.ubomb.go.character.*;
+import fr.ubx.poo.ubomb.go.decor.Bomb;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Properties;
@@ -26,6 +28,7 @@ public class Game {
     public final long monsterInvisibilityTime;
     private final Grid grid;
     private final Player player;
+    private List<Bomb> listBombs = new ArrayList<Bomb>();
 
     public Game(String worldPath) {
         try (InputStream input = new FileInputStream(new File(worldPath, "config.properties"))) {
@@ -60,6 +63,8 @@ public class Game {
     public Grid getGrid() {
         return grid;
     }
+
+
 
     // Returns the player, monsters and bombs at a given position
     public List<GameObject> getGameObjects(Position position) {

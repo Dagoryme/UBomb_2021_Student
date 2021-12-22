@@ -63,10 +63,6 @@ public class Sprite {
             imageView.setY(getPosition().getY() * size);
             layer.getChildren().add(imageView);
             gameObject.setModified(false);
-            if (gameObject instanceof Bomb){
-                gameObject.setModified(true);
-            }
-
         }
     }
 

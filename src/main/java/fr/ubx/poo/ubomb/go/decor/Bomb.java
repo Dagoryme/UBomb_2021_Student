@@ -5,34 +5,56 @@ import fr.ubx.poo.ubomb.game.Position;
 import fr.ubx.poo.ubomb.go.character.Player;
 
 public class Bomb extends Decor{
-    private long init;
-    private long time;
+
+    private long init_time;
+    private int state;
     private boolean hasExploded;
 
 
-    public Bomb(Game game, Position position, long now){
+    public Bomb(Position position, long now){
         super(position);
-        this.init = now;
-        setModified(true);
+        this.init_time = now;
     }
 
     public boolean isWalkable(Player player) {
         return true;
     }
 
-    public void checkStatus(long now){
-        setModified(true);
-        time = (now-this.init) / 1000000;
-        System.out.println(time);
-        if (time > 4000){           //explose la bombe au bout de 4 secondes
-            if (hasExploded == false){
-                //boom();
+    public void checkStatus(long now) {
+        if (now - init_time >= 1000) {
+            this.state = 3;
+            if (now - init_time >= 2000) {
+                this.state = 2;
+                if (now - init_time >= 3000) {
+                    this.state = 1;
+                    if (now - init_time >= 4000) {
+                        this.state = 0;
+                        this.hasExploded = true;
+                    }
+                }
             }
         }
+        setModified(true);
     }
 
-    public long getTime(){
-        return this.time;
+    public int getState(){
+        if (this.hasExploded == false) {
+            setModified(true);
+        }
+        return this.state;
+
+    }
+
+    public void setState(int state) {
+        this.state = state;
+    }
+
+    public boolean gethasExploded(){
+        return this.hasExploded;
+    }
+
+    public String toString() {
+        return "Bomb";
     }
 
 }
