@@ -130,7 +130,7 @@ public final class GameEngine {
                                 break;
                             }
                         }
-                        if (decor==null){
+                        if (decor==null && player.isInMap(nextPos)){
                             Bomb bomb = new Bomb(game,nextPos,bombs.get(i).getInit_time());
                             bombs.add(bomb);
                             bomb.setisExplosionSprite(true);
