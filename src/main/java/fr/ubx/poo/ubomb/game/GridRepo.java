@@ -47,8 +47,6 @@ public abstract class GridRepo {
                 return new Stone(pos);
             case Tree:
                 return new Tree(pos);
-            case Monster:
-                return new Monster(pos);
 
             default:
                 return null;

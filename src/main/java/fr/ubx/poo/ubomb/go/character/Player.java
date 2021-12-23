@@ -157,9 +157,6 @@ public class Player extends GameObject implements Movable {
         Grid grid = game.getGrid();
         Decor decor = grid.get(nextPos);
 
-        if (decor instanceof Monster){
-            getHit(System.currentTimeMillis());
-        }
         Player player = this.game.getPlayer();
         if (decor instanceof Bonus){
             ((Bonus) decor).takenBy(player);

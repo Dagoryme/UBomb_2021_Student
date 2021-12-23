@@ -5,11 +5,10 @@
 package fr.ubx.poo.ubomb.view;
 
 import fr.ubx.poo.ubomb.game.Direction;
+import fr.ubx.poo.ubomb.go.character.Monster;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
-import fr.ubx.poo.ubomb.go.decor.*;
-
 
 public class SpriteMonster extends Sprite {
 
@@ -22,14 +21,12 @@ public class SpriteMonster extends Sprite {
         updateImage();
     }
 
-/*    @Override
+    @Override
     public void updateImage() {
         Monster monster = (Monster) getGameObject();
         Image image = getImage(monster.getDirection());
         setImage(image);
     }
-
- */
 
     public Image getImage(Direction direction) {
         return ImageResource.getMonster(direction);
