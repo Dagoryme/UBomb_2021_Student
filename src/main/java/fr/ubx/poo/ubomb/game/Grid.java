@@ -34,6 +34,7 @@ public class Grid {
         return height;
     }
 
+
     public Decor get(Position position) {
         return elements.get(position);
     }

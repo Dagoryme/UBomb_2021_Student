@@ -103,6 +103,7 @@ public final class GameEngine {
                 createNewBombs(now);
                 checkCollision(now);
                 checkExplosions();
+                monstersMove();
 
                 // Graphic update
                 cleanupSprites();
@@ -111,6 +112,13 @@ public final class GameEngine {
             }
         };
     }
+
+    private void monstersMove(){
+        for (int i = 0 ; i < monsters.size() ; i ++){
+            monsters.get(i).requestMove(Direction.random());
+        }
+    }
+
 
     private void checkExplosions() {
         for (int i=0;i<bombs.size();i++){
