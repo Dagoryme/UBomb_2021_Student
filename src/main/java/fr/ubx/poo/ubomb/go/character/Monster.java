@@ -74,6 +74,16 @@ public class Monster extends GameObject implements Movable {
         return true;
     }
 
+    public boolean getHit(){
+        this.lives=this.lives-1;
+        if (this.lives <= 0){
+            remove();
+            setModified(true);
+            return true;
+        }
+        return false;
+    }
+
 
     public boolean isObject(Position pos){
         Grid grid = game.getGrid();

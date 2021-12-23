@@ -24,6 +24,7 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
+import javax.sound.midi.Soundbank;
 import java.util.*;
 
 
@@ -122,6 +123,13 @@ public final class GameEngine {
                 if (bombs.get(i).getPosition()==player.getPosition()){
                     player.getHit(System.currentTimeMillis());
                 }
+                for (int m=0;m<monsters.size();m++) {
+                    if (monsters.get(m).getPosition().getX() == bombs.get(i).getPosition().getX() && monsters.get(m).getPosition().getY() == bombs.get(i).getPosition().getY()) {
+                        if (monsters.get(m).getHit()) {
+                            monsters.remove(m);
+                        }
+                    }
+                }
                 for (int j=0;j<4;j++){
                     Direction direction = Direction.values()[j];
                     Position nextPos = direction.nextPosition(bombs.get(i).getPosition());
@@ -149,6 +157,15 @@ public final class GameEngine {
                         }
                         if (nextPos.getX() == player.getPosition().getX() &&nextPos.getY() == player.getPosition().getY()){
                             player.getHit(System.currentTimeMillis());
+                        }
+                        for (int m=0;m<monsters.size();m++) {
+                            if (monsters.get(m).getPosition().getX() == nextPos.getX() && monsters.get(m).getPosition().getY() == nextPos.getY()) {
+                                if (monsters.get(m).getHit()) {
+                                    monsters.remove(m);
+                                    break;
+                                }
+                                break;
+                            }
                         }
                         nextPos=direction.nextPosition(nextPos);
                     }
