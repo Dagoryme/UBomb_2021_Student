@@ -164,6 +164,9 @@ public class Player extends GameObject implements Movable {
         if (decor instanceof Bonus){
             ((Bonus) decor).takenBy(player);
         }
+        if (decor instanceof Door){
+            ((Door) decor).WorldChange(game.getPlayer());
+        }
         setPosition(nextPos);
     }
 
@@ -179,12 +182,9 @@ public class Player extends GameObject implements Movable {
         Decor decor = grid.get(nextPos);
         if (decor != null ){
             if (keys>0 && decor instanceof Door){
-                keys=keys -1;
-                ((Door) decor).setIsOpened(true);
-                ((Door) decor).setModified(true);
+                ((Door) decor).OpenDoor(game.getPlayer());
             }
         }
-
     }
 
     public void dropBomb(Bomb bomb){

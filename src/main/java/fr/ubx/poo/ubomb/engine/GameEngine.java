@@ -171,13 +171,7 @@ public final class GameEngine {
         } else if (input.isMoveUp()) {
             player.requestMove(Direction.UP);
         } else if (input.isKey()){
-            Direction direction = player.getDirection();
-            Position nextPos = direction.nextPosition(player.getPosition());
-            Grid grid =game.getGrid();
-            Decor decor_door = grid.get(nextPos);
-            if (decor_door instanceof Door && player.getKeys()>=1){
-                player.openDoor();
-            }
+            player.openDoor();
         } else if (input.isBomb()){
             if (player.getBombs()>=1){
                 Bomb bomb = new Bomb(game,player.getPosition(),System.currentTimeMillis());

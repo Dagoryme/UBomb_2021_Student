@@ -1,5 +1,7 @@
 package fr.ubx.poo.ubomb.go.decor;
 
+import fr.ubx.poo.ubomb.game.Direction;
+import fr.ubx.poo.ubomb.game.Grid;
 import fr.ubx.poo.ubomb.game.Position;
 import fr.ubx.poo.ubomb.go.character.Player;
 
@@ -37,6 +39,16 @@ public class Door extends Decor {
             return true;
         }
         return false;
+    }
+
+    public void WorldChange(Player player){
+        System.out.println("erwan le suce bite");
+    }
+
+    public void OpenDoor(Player player){
+        player.setKeys(player.getKeys()-1);
+        this.setIsOpened(true);
+        this.setModified(true);
     }
 
     @Override
