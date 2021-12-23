@@ -28,7 +28,6 @@ public class Game {
     public final long monsterInvisibilityTime;
     private final Grid grid;
     private final Player player;
-    private List<Bomb> listBombs = new ArrayList<Bomb>();
 
     public Game(String worldPath) {
         try (InputStream input = new FileInputStream(new File(worldPath, "config.properties"))) {
@@ -77,6 +76,7 @@ public class Game {
     public Player getPlayer() {
         return this.player;
     }
+
 
     public boolean inside(Position position) {
         return true;

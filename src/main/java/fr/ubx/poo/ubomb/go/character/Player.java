@@ -21,6 +21,7 @@ public class Player extends GameObject implements Movable {
     private int keys;
     private int bombs;
     private int bombrange;
+    private long invincibility;
 
 
     public Player(Game game, Position position, int lives) {
@@ -28,8 +29,9 @@ public class Player extends GameObject implements Movable {
         this.direction = Direction.DOWN;
         this.lives = lives;
         this.keys = 0;
-        this.bombs = 0;
+        this.bombs = 4;
         this.bombrange = 1;
+        this.invincibility =0;
     }
 
     public int getLives() {
@@ -62,6 +64,14 @@ public class Player extends GameObject implements Movable {
 
     public void setBombRange(int bombrange){
         this.bombrange = bombrange;
+    }
+
+    public void setInvincibility(long now){
+        this.invincibility=now;
+    }
+
+    public long getInvincibility(){
+        return this.invincibility;
     }
 
     public Direction getDirection() {
@@ -148,11 +158,14 @@ public class Player extends GameObject implements Movable {
         Decor decor = grid.get(nextPos);
 
         if (decor instanceof Monster){
-            this.lives=this.lives-1;
+            getHit(System.currentTimeMillis());
         }
         Player player = this.game.getPlayer();
         if (decor instanceof Bonus){
             ((Bonus) decor).takenBy(player);
+        }
+        if (decor instanceof Door){
+            ((Door) decor).WorldChange(game.getPlayer());
         }
         setPosition(nextPos);
     }
@@ -162,14 +175,6 @@ public class Player extends GameObject implements Movable {
         return false;
     }
 
-    @Override
-    public void explode() {
-    }
-
-    // Example of methods to define by the player
-
-
-
     public void openDoor(){
         Direction direction = getDirection();
         Position nextPos = direction.nextPosition(getPosition());
@@ -177,12 +182,9 @@ public class Player extends GameObject implements Movable {
         Decor decor = grid.get(nextPos);
         if (decor != null ){
             if (keys>0 && decor instanceof Door){
-                keys=keys -1;
-                ((Door) decor).setIsOpened(true);
-                ((Door) decor).setModified(true);
+                ((Door) decor).OpenDoor(game.getPlayer());
             }
         }
-
     }
 
     public void dropBomb(Bomb bomb){
@@ -190,6 +192,13 @@ public class Player extends GameObject implements Movable {
             bombs=bombs-1;
             Grid grid =game.getGrid();
             grid.set(getPosition(),bomb);
+        }
+    }
+
+    public void getHit(long now){
+        if (now-this.invincibility>1000){
+            this.lives=this.lives-1;
+            this.invincibility=System.currentTimeMillis();
         }
     }
 
