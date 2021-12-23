@@ -136,8 +136,8 @@ public final class GameEngine {
                             bomb.setisExplosionSprite(true);
                             sprites.add(new SpriteBomb(layer,bomb));
                         }
-                        if (nextPos==player.getPosition()){
-                            player.setLives(player.getLives()-1);
+                        if (nextPos.getX() == player.getPosition().getX() &&nextPos.getY() == player.getPosition().getY()){
+                            player.getHit(System.currentTimeMillis());
                         }
                         nextPos=direction.nextPosition(nextPos);
                     }
