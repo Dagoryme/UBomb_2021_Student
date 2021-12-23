@@ -48,6 +48,9 @@ public class Bomb extends Decor{
             if (now - hasExplodedtime >=1000 && this.state==0){
                 this.explosionEnded=true;
                 this.remove();
+                if (isExplosionSprite==false){
+                    game.getPlayer().setBombs(game.getPlayer().getBombs()+1);
+                }
                 setModified(false);
                 }
     }

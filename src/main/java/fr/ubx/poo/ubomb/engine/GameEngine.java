@@ -108,9 +108,6 @@ public final class GameEngine {
             bombs.get(i).checkStatus(System.currentTimeMillis());
             if (bombs.get(i).gethasExploded() && bombs.get(i).getisExplosionSprite()==false && bombs.get(i).getIsExplosionDone()==false){
                 bombs.get(i).setExplosionDone(true);
-                if (bombs.get(i).getPosition()==player.getPosition() && bombs.get(i).gethasExploded()){
-                    player.setLives(player.getLives()-1);
-                }
                 Grid grid = game.getGrid();
                 int range = game.getPlayer().getBombrange();
                 Decor decor;
@@ -138,6 +135,9 @@ public final class GameEngine {
                             bombs.add(bomb);
                             bomb.setisExplosionSprite(true);
                             sprites.add(new SpriteBomb(layer,bomb));
+                        }
+                        if (nextPos==player.getPosition()){
+                            player.setLives(player.getLives()-1);
                         }
                         nextPos=direction.nextPosition(nextPos);
                     }
