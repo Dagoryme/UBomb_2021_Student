@@ -45,7 +45,7 @@ public class Monster extends GameObject implements Movable {
     }
 
     public Direction getDirection() {
-        return Direction.random();
+        return this.direction;
     }
 
     public void requestMove(Direction direction) {
