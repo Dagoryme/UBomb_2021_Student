@@ -107,12 +107,6 @@ public class Monster extends GameObject implements Movable {
     public void doMove(Direction direction) {
         // Check if we need to pick something up
         Position nextPos = direction.nextPosition(getPosition());
-        Grid grid = game.getGrid();
-        Decor decor = grid.get(nextPos);
-        Player player = this.game.getPlayer();
-        if (decor instanceof Bonus){
-            ((Bonus) decor).takenBy(player);
-        }
         setPosition(nextPos);
     }
 
