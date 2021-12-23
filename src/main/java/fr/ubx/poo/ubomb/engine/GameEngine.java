@@ -106,12 +106,45 @@ public final class GameEngine {
     private void checkExplosions() {
         for (int i=0;i<bombs.size();i++){
             bombs.get(i).checkStatus(System.currentTimeMillis());
-            if (bombs.get(i).gethasExploded() && bombs.get(i).getState()==5){
-                bombs.get(i).explosion();
-                Grid grid = game.getGrid();
-                if (player.getPosition()==bombs.get(i).getPosition()){
+            if (bombs.get(i).gethasExploded() && bombs.get(i).getisExplosionSprite()==false && bombs.get(i).getIsExplosionDone()==false){
+                bombs.get(i).setExplosionDone(true);
+                if (bombs.get(i).getPosition()==player.getPosition() && bombs.get(i).gethasExploded()){
                     player.setLives(player.getLives()-1);
                 }
+                Grid grid = game.getGrid();
+                int range = game.getPlayer().getBombrange();
+                Decor decor;
+                for (int j=0;j<4;j++){
+                    Direction direction = Direction.values()[j];
+                    Position nextPos = direction.nextPosition(bombs.get(i).getPosition());
+                    for (int k = 0; k<range;k++){
+                        decor = grid.get(nextPos);
+                        if (decor!=null){
+                            if (decor.isBreakable()==false){
+                                break;
+                            }
+                            else if (decor.isBreakable()){
+                                Bomb bomb = new Bomb(game,nextPos,bombs.get(i).getInit_time());
+                                bombs.add(bomb);
+                                bomb.setisExplosionSprite(true);
+                                sprites.add(new SpriteBomb(layer,bomb));
+                                decor.remove();
+                                decor.setModified(true);
+                                break;
+                            }
+                        }
+                        if (decor==null){
+                            Bomb bomb = new Bomb(game,nextPos,bombs.get(i).getInit_time());
+                            bombs.add(bomb);
+                            bomb.setisExplosionSprite(true);
+                            sprites.add(new SpriteBomb(layer,bomb));
+                        }
+                        nextPos=direction.nextPosition(nextPos);
+                    }
+                }
+            }
+            if (bombs.get(i).gethasExploded() && bombs.get(i).getexplosionEnded()){
+                Grid grid = game.getGrid();
                 grid.remove(bombs.get(i).getPosition());
                 bombs.remove(i);
             }
@@ -148,6 +181,7 @@ public final class GameEngine {
         } else if (input.isBomb()){
             if (player.getBombs()>=1){
                 Bomb bomb = new Bomb(game,player.getPosition(),System.currentTimeMillis());
+                bomb.setisExplosionSprite(false);
                 bomb.setState(3);
                 sprites.add(new SpriteBomb(layer,bomb));
                 bombs.add(bomb);
