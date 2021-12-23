@@ -115,8 +115,12 @@ public final class GameEngine {
 
     private void monstersMove(){
         for (int i = 0 ; i < monsters.size() ; i ++){
-            monsters.get(i).requestMove(Direction.random());
-            monsters.get(i).update(System.currentTimeMillis());
+            if (System.currentTimeMillis()-monsters.get(i).getTimesincemove()>1000){
+                monsters.get(i).setTimesincemove(System.currentTimeMillis());
+                monsters.get(i).requestMove(Direction.random());
+                monsters.get(i).update(System.currentTimeMillis());
+            }
+
         }
     }
 

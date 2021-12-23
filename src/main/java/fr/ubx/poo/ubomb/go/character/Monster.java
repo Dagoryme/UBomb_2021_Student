@@ -18,12 +18,22 @@ public class Monster extends GameObject implements Movable {
     private Direction direction;
     private boolean moveRequested = false;
     private int lives;
+    private long timesincemove;
 
+
+    public long getTimesincemove() {
+        return timesincemove;
+    }
+
+    public void setTimesincemove(long timesincemove) {
+        this.timesincemove = timesincemove;
+    }
 
     public Monster(Game game, Position position, int lives) {
         super(game, position);
         this.direction = Direction.DOWN;
         this.lives = 0;
+        this.timesincemove=0;
     }
 
     public int getLives() {
