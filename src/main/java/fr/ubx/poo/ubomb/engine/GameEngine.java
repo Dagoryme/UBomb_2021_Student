@@ -40,6 +40,7 @@ public final class GameEngine {
     private Pane layer;
     private Input input;
     private List <Bomb> bombs = new LinkedList<>();
+    private List <Monster> monsters = new LinkedList<>();
 
 
     public GameEngine(final String windowTitle, Game game, final Stage stage) {
@@ -82,6 +83,11 @@ public final class GameEngine {
                 decor.setModified(true);
             }
         }
+        for (int i=0;i<game.getGrid().getPosMonster().size();i++){
+            Monster monster = new Monster(game,game.getGrid().getPosMonster().get(i),1);
+            monsters.add(monster);
+            sprites.add(new SpriteMonster(layer,monster));
+        }
         sprites.add(new SpritePlayer(layer, player));
     }
 
@@ -113,6 +119,9 @@ public final class GameEngine {
                 Grid grid = game.getGrid();
                 int range = game.getPlayer().getBombrange();
                 Decor decor;
+                if (bombs.get(i).getPosition()==player.getPosition()){
+                    player.getHit(System.currentTimeMillis());
+                }
                 for (int j=0;j<4;j++){
                     Direction direction = Direction.values()[j];
                     Position nextPos = direction.nextPosition(bombs.get(i).getPosition());
@@ -157,6 +166,11 @@ public final class GameEngine {
     }
 
     private void checkCollision(long now) {
+        for (int i=0;i<monsters.size();i++){
+            if (player.getPosition().getX()==monsters.get(i).getPosition().getX() && player.getPosition().getY()==monsters.get(i).getPosition().getY()){
+                player.getHit(System.currentTimeMillis());
+            }
+        }
     }
 
     private void processInput(long now) {

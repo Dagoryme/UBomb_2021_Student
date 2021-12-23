@@ -1,5 +1,6 @@
 package fr.ubx.poo.ubomb.game;
 
+import fr.ubx.poo.ubomb.go.character.Monster;
 import fr.ubx.poo.ubomb.go.decor.*;
 import fr.ubx.poo.ubomb.go.decor.bonus.*;
 import fr.ubx.poo.ubomb.go.decor.bonus.Key;
@@ -18,6 +19,15 @@ public abstract class GridRepo {
     }
 
     public abstract Grid load(int level, String name);
+
+    Monster proccesMonster(EntityCode entityCode, Position pos){
+        switch (entityCode) {
+            case Monster:
+                return new Monster(game,pos,1);
+            default:
+                return null;
+        }
+    }
 
     Decor processEntityCode(EntityCode entityCode, Position pos) {
         switch (entityCode) {
@@ -47,7 +57,6 @@ public abstract class GridRepo {
                 return new Stone(pos);
             case Tree:
                 return new Tree(pos);
-
             default:
                 return null;
                 // throw new RuntimeException("EntityCode " + entityCode.name() + " not processed");

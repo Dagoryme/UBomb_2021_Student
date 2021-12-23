@@ -1,22 +1,29 @@
 package fr.ubx.poo.ubomb.game;
 
 import fr.ubx.poo.ubomb.go.decor.Decor;
+import fr.ubx.poo.ubomb.game.Position;
 
-import java.util.Collection;
-import java.util.Hashtable;
-import java.util.Map;
+import java.util.*;
 
 public class Grid {
 
     private final int width;
     private final int height;
-
+    private List<Position> PosMonster = new ArrayList<>();
     private final Map<Position, Decor> elements;
 
     public Grid(int width, int height) {
         this.width = width;
         this.height = height;
         this.elements = new Hashtable<>();
+    }
+
+    public void addPosMonster(Position posmonster){
+        PosMonster.add(posmonster);
+    }
+
+    public List<Position> getPosMonster() {
+        return this.PosMonster;
     }
 
     public int getWidth() {

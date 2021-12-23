@@ -78,6 +78,8 @@ public class Game {
     }
 
 
+
+
     public boolean inside(Position position) {
         return true;
     }

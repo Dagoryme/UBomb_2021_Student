@@ -1,5 +1,7 @@
 package fr.ubx.poo.ubomb.game;
 
+import fr.ubx.poo.ubomb.go.character.Monster;
+
 import java.lang.reflect.Field;
 
 import static fr.ubx.poo.ubomb.game.EntityCode.*;
@@ -39,6 +41,10 @@ public class GridRepoSample extends GridRepo {
             for (int j = 0; j < height; j++) {
                 Position position = new Position(i, j);
                 EntityCode entityCode = entities[j][i];
+                if (entityCode == Monster){
+                    Position posmonster= new Position(i,j);
+                    grid.addPosMonster(posmonster);
+                }
                 grid.set(position, processEntityCode(entityCode, position));
             }
         }
