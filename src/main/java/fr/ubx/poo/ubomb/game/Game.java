@@ -79,8 +79,9 @@ public class Game {
 
     public void loadNext(String path){
         if (grids.size()<levels+1){
-            //Grid nextgrid= new GridRepoFile()
-            //grids.add(nextgrid);
+            GridRepoFile fromfile= new GridRepoFile(this.getPlayer().game);
+            Grid nextgrid = fromfile.load(levels,this.worldPath);
+            grids.add(nextgrid);
         }
         this.grid = grids.get(levels-1);
     }

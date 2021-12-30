@@ -4,64 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f91f8cb-93fc-461e-9f30-ae6b3bb5bb5f" name="Changes" comment="Monsters moves go brrrrr">
+    <list default="true" id="4f91f8cb-93fc-461e-9f30-ae6b3bb5bb5f" name="Changes" comment="World change">
       <change beforePath="$PROJECT_DIR$/.gradle/7.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/engine/GameEngine$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/engine/GameEngine$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/engine/GameEngine$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/engine/GameEngine$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/engine/GameEngine.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/engine/GameEngine.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/engine/Input.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/engine/Input.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/engine/StatusBar.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/engine/StatusBar.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/game/Direction$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/game/Direction$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/game/Direction$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/game/Direction$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/game/Direction$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/game/Direction$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/game/Direction$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/game/Direction$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/game/Direction.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/game/Direction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/game/EntityCode.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/game/EntityCode.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/game/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/game/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/game/Grid.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/game/Grid.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/game/GridException.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/game/GridException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/game/GridRepo$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/game/GridRepo$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/game/GridRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/game/GridRepo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/game/GridRepoSample.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/game/GridRepoSample.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/game/Position.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/game/Position.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/go/GameObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/go/GameObject.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/go/Movable.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/go/Movable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/go/Takeable.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/go/Takeable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/go/character/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/go/character/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/go/decor/Bomb.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/go/decor/Bomb.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/go/decor/Box.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/go/decor/Box.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/go/decor/Decor.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/go/decor/Decor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/go/decor/Door.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/go/decor/Door.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/go/decor/Stone.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/go/decor/Stone.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/go/decor/Tree.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/go/decor/Tree.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/go/decor/bonus/Bomb_ND.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/go/decor/bonus/Bomb_ND.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/go/decor/bonus/Bomb_NI.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/go/decor/bonus/Bomb_NI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/go/decor/bonus/Bomb_RD.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/go/decor/bonus/Bomb_RD.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/go/decor/bonus/Bomb_RI.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/go/decor/bonus/Bomb_RI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/go/decor/bonus/Bonus.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/go/decor/bonus/Bonus.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/go/decor/bonus/Heart.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/go/decor/bonus/Heart.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/go/decor/bonus/Key.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/go/decor/bonus/Key.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/go/decor/bonus/Princess.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/go/decor/bonus/Princess.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/view/ImageResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/view/ImageResource.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/view/Sprite.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/view/Sprite.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/view/SpriteBomb.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/view/SpriteBomb.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/view/SpriteDoor.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/view/SpriteDoor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/view/SpriteFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/view/SpriteFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/view/SpriteMonster.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/view/SpriteMonster.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/view/SpritePlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/view/SpritePlayer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ubx/poo/ubomb/engine/GameEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ubx/poo/ubomb/engine/GameEngine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/ubx/poo/ubomb/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ubx/poo/ubomb/game/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ubx/poo/ubomb/game/GridRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ubx/poo/ubomb/game/GridRepo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/ubx/poo/ubomb/game/GridRepoFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ubx/poo/ubomb/game/GridRepoFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ubx/poo/ubomb/go/decor/Door.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ubx/poo/ubomb/go/decor/Door.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -337,7 +290,14 @@
       <option name="project" value="LOCAL" />
       <updated>1640277189160</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="World change">
+      <created>1640895883395</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1640895883395</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -387,6 +347,7 @@
     <MESSAGE value="Bomb explosions hit monsters" />
     <MESSAGE value="Monsters go brrrrr" />
     <MESSAGE value="Monsters moves go brrrrr" />
-    <option name="LAST_COMMIT_MESSAGE" value="Monsters moves go brrrrr" />
+    <MESSAGE value="World change" />
+    <option name="LAST_COMMIT_MESSAGE" value="World change" />
   </component>
 </project>

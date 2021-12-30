@@ -7,9 +7,15 @@ import fr.ubx.poo.ubomb.game.Game;
 
 import javax.swing.text.html.parser.Entity;
 
-public class GridRepoFile {
+import static fr.ubx.poo.ubomb.game.EntityCode.Monster;
 
-    public EntityCode[][] load(int level, String worldPath){
+public class GridRepoFile extends GridRepo {
+
+    public GridRepoFile(Game game){
+        super(game);
+    }
+
+    public Grid load (int level,String worldPath){
 
         int r;
         int x = 0;
@@ -50,7 +56,7 @@ public class GridRepoFile {
         catch(IOException e){
             System.err.println("File error " + e);
         }
-        EntityCode[][] grid = new EntityCode[lines][columns];        //crée une tableau de WorldEntity avec lines lignes et columns colonnes
+        EntityCode[][] tab = new EntityCode[lines][columns];        //crée une tableau de WorldEntity avec lines lignes et columns colonnes
 
         try{
             file = new File(worldPath, "level" + level + ".txt");
@@ -59,11 +65,8 @@ public class GridRepoFile {
                 while (y<columns){
                     r = fr.read();
                     if(r != -1){
-                        Optional<EntityCode> entity = EntityCode.fromCode((char)r);   //transforme ce qui a été lu en caractère
-                        if (entity.isPresent()){                                        //si entity n'est pas vide
-                            grid[x][y] = entity.get();                             //remplie le tableau avec entity
-                            y ++;
-                        }
+                        tab[x][y] = EntityCode.fromCode((char)r);     // remplie le tableau avec entity
+                        y ++;
                     }
                 }
                 x ++;
@@ -77,7 +80,20 @@ public class GridRepoFile {
         catch(IOException e){
             System.err.println("File error " + e);
         }
+        Grid grid = new Grid(lines, columns);
+        for (int i = 0; i < lines; i++) {
+            for (int j = 0; j < columns; j++) {
+                Position position = new Position(i, j);
+                EntityCode entityCode = tab[j][i];
+                if (entityCode == Monster){
+                    Position posmonster= new Position(i,j);
+                    grid.addPosMonster(posmonster);
+                }
+                grid.set(position, processEntityCode(entityCode, position));
+            }
+        }
         return grid;
+
     }
 
 
