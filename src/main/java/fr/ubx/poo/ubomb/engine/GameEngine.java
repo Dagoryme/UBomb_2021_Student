@@ -120,7 +120,6 @@ public final class GameEngine {
                 monsters.get(i).requestMove(Direction.random());
                 monsters.get(i).update(System.currentTimeMillis());
             }
-
         }
     }
 

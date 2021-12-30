@@ -3,10 +3,13 @@ package fr.ubx.poo.ubomb.game;
 import java.io.*;
 import java.lang.reflect.Field;
 import java.util.Optional;
+import fr.ubx.poo.ubomb.game.Game;
+
+import javax.swing.text.html.parser.Entity;
 
 public class GridRepoFile {
 
-    public EntityCode[][] load(int level, String path){
+    public EntityCode[][] load(int level, String worldPath){
 
         int r;
         int x = 0;
@@ -56,7 +59,7 @@ public class GridRepoFile {
                 while (y<columns){
                     r = fr.read();
                     if(r != -1){
-                        Optional<EntityCode> entity = WorldEntity.fromCode((char)r);   //transforme ce qui a été lu en caractère
+                        Optional<EntityCode> entity = EntityCode.fromCode((char)r);   //transforme ce qui a été lu en caractère
                         if (entity.isPresent()){                                        //si entity n'est pas vide
                             grid[x][y] = entity.get();                             //remplie le tableau avec entity
                             y ++;

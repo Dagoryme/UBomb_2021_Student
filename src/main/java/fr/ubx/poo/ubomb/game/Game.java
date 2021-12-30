@@ -20,15 +20,18 @@ public class Game {
 
     public final int bombBagCapacity;
     public final int monsterVelocity;
-    public final int playerLives;
-    public final int levels;
+    public int playerLives;
+    public int levels;
     public final long playerInvisibilityTime;
     public final long monsterInvisibilityTime;
-    private final Grid grid;
-    private final Player player;
+    public final String worldPath;
+    private Grid grid;
+    private Player player;
+    private List<Grid> grids = new LinkedList<>();
 
     public Game(String worldPath) {
         try (InputStream input = new FileInputStream(new File(worldPath, "config.properties"))) {
+            this.worldPath= worldPath;
             Properties prop = new Properties();
             // load the configuration file
             prop.load(input);
@@ -42,8 +45,9 @@ public class Game {
             // Load the world
             String prefix = prop.getProperty("prefix");
             GridRepo gridRepo = new GridRepoSample(this);
-            this.grid = gridRepo.load(1, prefix + 1);
-
+            Grid grid = gridRepo.load(1, prefix + 1);
+            this.grid = grid;
+            grids.add(grid);
             // Create the player
             String[] tokens = prop.getProperty("player").split("[ :x]+");
             if (tokens.length != 2)
@@ -61,6 +65,30 @@ public class Game {
         return grid;
     }
 
+    public int getLevels() {
+        return levels;
+    }
+
+    public void setLevels(int levels){
+        this.levels=levels;
+    }
+
+    public String getWorldPath() {
+        return worldPath;
+    }
+
+    public void loadNext(String path){
+        if (grids.size()<levels+1){
+            //Grid nextgrid= new GridRepoFile()
+            //grids.add(nextgrid);
+        }
+        this.grid = grids.get(levels-1);
+    }
+
+    public void loadPrev(String path){
+        this.grid = grids.get(levels-2);
+    }
+
 
 
     // Returns the player, monsters and bombs at a given position
@@ -74,9 +102,6 @@ public class Game {
     public Player getPlayer() {
         return this.player;
     }
-
-
-
 
     public boolean inside(Position position) {
         return true;

@@ -42,6 +42,10 @@ public class Door extends Decor {
     }
 
     public void WorldChange(Player player){
+        if (isPrevious){
+            game.setLevels(game.getLevels()+1);
+            game.loadNext(game.getWorldPath());
+        }
         System.out.println("erwan le suce bite");
     }
 

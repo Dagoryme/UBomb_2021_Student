@@ -20,15 +20,6 @@ public abstract class GridRepo {
 
     public abstract Grid load(int level, String name);
 
-    Monster proccesMonster(EntityCode entityCode, Position pos){
-        switch (entityCode) {
-            case Monster:
-                return new Monster(game,pos,1);
-            default:
-                return null;
-        }
-    }
-
     Decor processEntityCode(EntityCode entityCode, Position pos) {
         switch (entityCode) {
             case Empty:
