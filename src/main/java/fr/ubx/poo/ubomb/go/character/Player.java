@@ -97,6 +97,12 @@ public class Player extends GameObject implements Movable {
         if (decor instanceof Box){
             // on regarde si la position suivante est disponible et qu'elle est dans la carte
             Position box = direction.nextPosition(nextPos);
+            for (int i = 0 ; i < grid.getMonster().size() ; i++){
+                if (grid.getMonster().get(i).getPosition().getX()== box.getX() &&
+                        grid.getMonster().get(i).getPosition().getY()== box.getY()){
+                    return false;
+                }
+            }
             if(isInMap(box) && isEmpty(box)){
                 decor.setPosition(box);
                 grid.remove(nextPos);
