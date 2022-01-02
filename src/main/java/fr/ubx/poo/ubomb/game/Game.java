@@ -28,6 +28,7 @@ public class Game {
     private Grid grid;
     private Player player;
     private List<Grid> grids = new LinkedList<>();
+    public boolean GridChange;
 
     public Game(String worldPath) {
         try (InputStream input = new FileInputStream(new File(worldPath, "config.properties"))) {
@@ -66,7 +67,7 @@ public class Game {
     }
 
     public int getLevels() {
-        return levels;
+        return this.levels;
     }
 
     public void setLevels(int levels){
@@ -77,13 +78,18 @@ public class Game {
         return worldPath;
     }
 
-    public void loadNext(String path){
-        if (grids.size()<levels+1){
+    public void loadNext(){
+        if (this.GridChange==false){
+            this.levels=this.levels+1;
+            System.out.println("levels fait");
             GridRepoFile fromfile= new GridRepoFile(this.getPlayer().game);
+            System.out.println("File fait");
             Grid nextgrid = fromfile.load(levels,this.worldPath);
+            player.setPosition(grid.getNextPosPlayer());
             grids.add(nextgrid);
+            this.grid=nextgrid;
+            this.GridChange=true;
         }
-        this.grid = grids.get(levels-1);
     }
 
     public void loadPrev(String path){

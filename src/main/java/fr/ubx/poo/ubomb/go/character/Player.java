@@ -162,10 +162,11 @@ public class Player extends GameObject implements Movable {
         if (decor instanceof Bonus){
             ((Bonus) decor).takenBy(player);
         }
-        if (decor instanceof Door){
-            ((Door) decor).WorldChange(game.getPlayer());
-        }
         setPosition(nextPos);
+        if (decor instanceof Door){
+            game.loadNext();
+            //((Door) decor).WorldChange();
+        }
     }
 
     @Override

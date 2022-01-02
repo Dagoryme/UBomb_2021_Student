@@ -6,8 +6,8 @@ import java.util.Optional;
 import fr.ubx.poo.ubomb.game.Game;
 
 import javax.swing.text.html.parser.Entity;
-
 import static fr.ubx.poo.ubomb.game.EntityCode.Monster;
+import static fr.ubx.poo.ubomb.game.EntityCode.DoorPrevOpened;
 
 public class GridRepoFile extends GridRepo {
 
@@ -59,12 +59,15 @@ public class GridRepoFile extends GridRepo {
         EntityCode[][] tab = new EntityCode[lines][columns];        //crée une tableau de WorldEntity avec lines lignes et columns colonnes
 
         try{
+
             file = new File(worldPath, "level" + level + ".txt");
             fr = new FileReader(file);
             while (x < lines){
-                while (y<columns){
+                while (y<columns-5){
                     r = fr.read();
-                    if(r != -1){
+                    if(r != -1 && r!=10){
+                        System.out.println(r);
+                        System.out.println((char)r);
                         tab[x][y] = EntityCode.fromCode((char)r);     // remplie le tableau avec entity
                         y ++;
                     }
@@ -88,6 +91,10 @@ public class GridRepoFile extends GridRepo {
                 if (entityCode == Monster){
                     Position posmonster= new Position(i,j);
                     grid.addPosMonster(posmonster);
+                }
+                if (entityCode == DoorPrevOpened){
+                    Position nextPosPlayer = new Position(i,j);
+                    grid.setNextPosPlayer(nextPosPlayer);
                 }
                 grid.set(position, processEntityCode(entityCode, position));
             }

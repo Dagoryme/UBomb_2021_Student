@@ -251,6 +251,11 @@ public final class GameEngine {
 
 
     private void update(long now) {
+        if (game.GridChange){
+            cleanupSprites();
+            initialize();
+
+        }
         player.update(now);
 
         if (player.getLives() == 0) {

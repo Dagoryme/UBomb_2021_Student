@@ -4,17 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f91f8cb-93fc-461e-9f30-ae6b3bb5bb5f" name="Changes" comment="World change">
+    <list default="true" id="4f91f8cb-93fc-461e-9f30-ae6b3bb5bb5f" name="Changes" comment="World change GridRepoFile">
       <change beforePath="$PROJECT_DIR$/.gradle/7.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/engine/GameEngine.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/engine/GameEngine.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/game/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/game/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/game/Grid.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/game/Grid.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/go/character/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/go/character/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/go/decor/Door.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/go/decor/Door.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ubx/poo/ubomb/engine/GameEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ubx/poo/ubomb/engine/GameEngine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/ubx/poo/ubomb/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ubx/poo/ubomb/game/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ubx/poo/ubomb/game/Grid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ubx/poo/ubomb/game/Grid.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/ubx/poo/ubomb/game/GridRepoFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ubx/poo/ubomb/game/GridRepoFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ubx/poo/ubomb/go/character/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ubx/poo/ubomb/go/character/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ubx/poo/ubomb/go/decor/Door.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ubx/poo/ubomb/go/decor/Door.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ubx/poo/ubomb/view/SpriteDoor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ubx/poo/ubomb/view/SpriteDoor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sample/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sample/config.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -297,7 +307,14 @@
       <option name="project" value="LOCAL" />
       <updated>1640895883395</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="World change GridRepoFile">
+      <created>1640896580727</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1640896580727</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -348,6 +365,17 @@
     <MESSAGE value="Monsters go brrrrr" />
     <MESSAGE value="Monsters moves go brrrrr" />
     <MESSAGE value="World change" />
-    <option name="LAST_COMMIT_MESSAGE" value="World change" />
+    <MESSAGE value="World change GridRepoFile" />
+    <option name="LAST_COMMIT_MESSAGE" value="World change GridRepoFile" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

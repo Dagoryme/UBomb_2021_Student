@@ -10,7 +10,7 @@ public class SpriteDoor extends Sprite{
         super(layer, null, decor);
         updateImage();
     }
-//spritedoor
+
     @Override
     public void updateImage() {
         Door door = (Door) getGameObject();

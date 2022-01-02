@@ -2,6 +2,7 @@ package fr.ubx.poo.ubomb.game;
 
 import fr.ubx.poo.ubomb.go.decor.Decor;
 import fr.ubx.poo.ubomb.game.Position;
+import javafx.geometry.Pos;
 
 import java.util.*;
 
@@ -10,6 +11,7 @@ public class Grid {
     private final int width;
     private final int height;
     private List<Position> PosMonster = new ArrayList<>();
+    private Position nextPosPlayer;
     private final Map<Position, Decor> elements;
 
     public Grid(int width, int height) {
@@ -34,6 +36,13 @@ public class Grid {
         return height;
     }
 
+    public void setNextPosPlayer(Position nextPosPlayer) {
+        this.nextPosPlayer = nextPosPlayer;
+    }
+
+    public Position getNextPosPlayer() {
+        return nextPosPlayer;
+    }
 
     public Decor get(Position position) {
         return elements.get(position);
