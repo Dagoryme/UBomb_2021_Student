@@ -63,11 +63,11 @@ public class GridRepoFile extends GridRepo {
             file = new File(worldPath, "level" + level + ".txt");
             fr = new FileReader(file);
             while (x < lines){
-                while (y<columns-5){
+                while (y<columns){
                     r = fr.read();
                     if(r != -1 && r!=10){
-                        System.out.println(r);
-                        System.out.println((char)r);
+                        //System.out.println(r);
+                        //System.out.println((char)r);
                         tab[x][y] = EntityCode.fromCode((char)r);     // remplie le tableau avec entity
                         y ++;
                     }
