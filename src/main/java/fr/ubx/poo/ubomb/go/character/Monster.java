@@ -58,6 +58,7 @@ public class Monster extends GameObject implements Movable {
     }
 
     public boolean canMove(Direction direction) {
+        //on vérifie que le monstre peut bouger
         Position nextPos = direction.nextPosition(getPosition());
         Grid grid = game.getGrid();
         Decor decor = grid.get(nextPos);
@@ -69,6 +70,7 @@ public class Monster extends GameObject implements Movable {
 
 
     public boolean isInMap(Position pos){
+        //on vérifie qu'il est dans les limites de la carte
         Grid grid=game.getGrid();
         if(pos.getY()>=grid.getHeight()){
             return false;
@@ -86,6 +88,7 @@ public class Monster extends GameObject implements Movable {
     }
 
     public boolean getHit(){
+        //perd une vie
         this.lives=this.lives-1;
         if (this.lives <= 0){
             remove();
@@ -116,6 +119,7 @@ public class Monster extends GameObject implements Movable {
     }
 
     public void doMove(Direction direction) {
+        //fait bouger le monstre de manière aléatoire
         Position nextPos = direction.nextPosition(getPosition());
         setPosition(nextPos);
     }

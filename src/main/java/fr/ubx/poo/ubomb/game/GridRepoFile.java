@@ -14,15 +14,14 @@ public class GridRepoFile extends GridRepo {
     public GridRepoFile(Game game){
         super(game);
     }
-
+    //charge le niveau voulu
     public Grid load (int level,String worldPath){
 
         int r;
         int x = 0;
         int y = 0;
-
         int lines = 0;
-        int characters = 0;
+        int nb = 0;
         int columns = 0;
 
         File file;
@@ -34,20 +33,23 @@ public class GridRepoFile extends GridRepo {
             fr = new FileReader(file);
 
             br = new BufferedReader(fr);
-            while (br.readLine() != null){      //compte le nombre de lignes du fichier
+            //nombre de lignes du fichier txt
+            while (br.readLine() != null){
                 lines++;
             }
             br.close();
             fr.close();
             fr = new FileReader(file);
+            //nombre de caractères du fichier
             while(true){
                 r = fr.read();
-                characters++;               //compte le nombre de caractères du fichier
+                nb++;
                 if (r==-1){
                     break;
                 }
             }
-            columns = characters/lines - 1;     //calcule le nombre de colonnes du fichier
+            //calcule les colonnes
+            columns = nb/lines - 1;
             fr.close();
         }
         catch(FileNotFoundException e){
@@ -56,8 +58,8 @@ public class GridRepoFile extends GridRepo {
         catch(IOException e){
             System.err.println("File error " + e);
         }
-        EntityCode[][] tab = new EntityCode[lines][columns];        //crée une tableau de WorldEntity avec lines lignes et columns colonnes
-
+        EntityCode[][] tab = new EntityCode[lines][columns];
+        // création du tableau pour le niveau
         try{
 
             file = new File(worldPath, "level" + level + ".txt");
@@ -66,7 +68,8 @@ public class GridRepoFile extends GridRepo {
                 while (y<columns){
                     r = fr.read();
                     if(r != -1 && r!=10){
-                        tab[x][y] = EntityCode.fromCode((char)r);     // remplie le tableau avec entity
+                        //remplissage du tableau
+                        tab[x][y] = EntityCode.fromCode((char)r);
                         y ++;
                     }
                 }
@@ -86,10 +89,12 @@ public class GridRepoFile extends GridRepo {
             for (int j = 0; j < lines; j++) {
                 Position position = new Position(i, j);
                 EntityCode entityCode = tab[j][i];
+                //placement des monstre dans la liste
                 if (entityCode == Monster){
                     Position posmonster= new Position(i,j);
                     grid.addPosMonster(posmonster);
                 }
+
                 if (entityCode == DoorPrevOpened){
                     Position nextPosPlayer = new Position(i,j);
                     grid.setNextPosPlayer(nextPosPlayer);

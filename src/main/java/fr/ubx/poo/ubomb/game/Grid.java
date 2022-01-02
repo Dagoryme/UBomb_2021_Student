@@ -1,5 +1,7 @@
 package fr.ubx.poo.ubomb.game;
 
+import fr.ubx.poo.ubomb.go.character.Monster;
+import fr.ubx.poo.ubomb.go.decor.Bomb;
 import fr.ubx.poo.ubomb.go.decor.Decor;
 import fr.ubx.poo.ubomb.game.Position;
 import fr.ubx.poo.ubomb.go.decor.Door;
@@ -16,17 +18,18 @@ public class Grid {
     private Position nextPosPlayer;
     private final Map<Position, Decor> elements;
 
+
     public Grid(int width, int height) {
         this.width = width;
         this.height = height;
         this.elements = new Hashtable<>();
     }
-
+    //ajoute la position d'un monstre a la liste
     public void addPosMonster(Position pos){
         PosMonster.add(pos);
     }
 
-
+    //retourne la liste de position
     public List<Position> getPosMonster() {
         return PosMonster;
     }

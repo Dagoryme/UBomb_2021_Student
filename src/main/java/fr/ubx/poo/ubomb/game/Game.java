@@ -65,7 +65,7 @@ public class Game {
     public Grid getGrid() {
         return grid;
     }
-
+    //chargement du prochain niveau
     public void loadNext(){
         if (this.GridChange==false){
             this.levels=this.levels+1;
@@ -77,7 +77,7 @@ public class Game {
             this.GridChange=true;
         }
     }
-
+    //chargement du niveau précédent
     public void loadPrev(){
         if (this.GridChange==false){
             this.levels=this.levels-1;
@@ -89,7 +89,7 @@ public class Game {
 
 
 
-    // Returns the player, monsters and bombs at a given position
+
     public List<GameObject> getGameObjects(Position position) {
         List<GameObject> gos = new LinkedList<>();
         if (getPlayer().getPosition().equals(position))

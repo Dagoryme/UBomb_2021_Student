@@ -87,6 +87,7 @@ public class Player extends GameObject implements Movable {
     }
 
     public boolean canMove(Direction direction) {
+        //vérifie si l'on peut bouger, et si l'on peut bouger une box
         Position nextPos = direction.nextPosition(getPosition());
         Grid grid = game.getGrid();
         Decor decor = grid.get(nextPos);
@@ -94,6 +95,7 @@ public class Player extends GameObject implements Movable {
             return true;
         }
         if (decor instanceof Box){
+            // on regarde si la position suivante est disponible et qu'elle est dans la carte
             Position box = direction.nextPosition(nextPos);
             if(isInMap(box) && isEmpty(box)){
                 decor.setPosition(box);
@@ -107,6 +109,7 @@ public class Player extends GameObject implements Movable {
 
 
     public boolean isInMap(Position pos){
+        //vérifie si on est dans les limites de la carte
         Grid grid=game.getGrid();
         if(pos.getY()>=grid.getHeight()){
             return false;
@@ -124,6 +127,7 @@ public class Player extends GameObject implements Movable {
     }
 
     public boolean isEmpty(Position pos){
+        //vérifie le contenu d'une case a une position donnée
         Grid grid = game.getGrid();
         Decor decor = grid.get(pos);
         if(decor == null){
@@ -152,7 +156,8 @@ public class Player extends GameObject implements Movable {
     }
 
     public void doMove(Direction direction) {
-        // Check if we need to pick something up
+        //vérifie si on doit ramasser un bonus, ou changer de niveau
+        //dans ce cas, on le ramasse ou on change de niveau
         Position nextPos = direction.nextPosition(getPosition());
         Grid grid = game.getGrid();
         Decor decor = grid.get(nextPos);
@@ -178,6 +183,7 @@ public class Player extends GameObject implements Movable {
     }
 
     public void openDoor(){
+        //on ouvre une porte ssi on possède une clé
         Direction direction = getDirection();
         Position nextPos = direction.nextPosition(getPosition());
         Grid grid =game.getGrid();
@@ -190,6 +196,7 @@ public class Player extends GameObject implements Movable {
     }
 
     public void dropBomb(Bomb bomb){
+        //on pose une bombe à une position donnée
         if (bombs>=1){
             bombs=bombs-1;
             Grid grid =game.getGrid();
