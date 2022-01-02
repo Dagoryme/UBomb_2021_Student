@@ -85,9 +85,9 @@ public class Game {
             GridRepoFile fromfile= new GridRepoFile(this.getPlayer().game);
             System.out.println("File fait");
             Grid nextgrid = fromfile.load(levels,this.worldPath);
+            this.grid=nextgrid;
             player.setPosition(grid.getNextPosPlayer());
             grids.add(nextgrid);
-            this.grid=nextgrid;
             this.GridChange=true;
         }
     }

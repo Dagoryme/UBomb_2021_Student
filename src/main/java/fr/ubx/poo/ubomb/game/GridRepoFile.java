@@ -66,8 +66,6 @@ public class GridRepoFile extends GridRepo {
                 while (y<columns){
                     r = fr.read();
                     if(r != -1 && r!=10){
-                        //System.out.println(r);
-                        //System.out.println((char)r);
                         tab[x][y] = EntityCode.fromCode((char)r);     // remplie le tableau avec entity
                         y ++;
                     }
@@ -83,9 +81,9 @@ public class GridRepoFile extends GridRepo {
         catch(IOException e){
             System.err.println("File error " + e);
         }
-        Grid grid = new Grid(lines, columns);
-        for (int i = 0; i < lines; i++) {
-            for (int j = 0; j < columns; j++) {
+        Grid grid = new Grid(columns, lines);
+        for (int i = 0; i < columns; i++) {
+            for (int j = 0; j < lines; j++) {
                 Position position = new Position(i, j);
                 EntityCode entityCode = tab[j][i];
                 if (entityCode == Monster){
