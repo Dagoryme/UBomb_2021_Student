@@ -90,7 +90,7 @@ public class StatusBar {
 
     public void updateStatusBar( int sceneWidth, int sceneHeight){
         hBox.relocate(0, sceneHeight);
-        hBox.setPrefSize(sceneWidth, game.getGrid().getHeight());
+        hBox.setPrefSize(sceneWidth, game.getGrid().getHeight()); //adapte de la taille de la barre a la taille de la fenetre
     }
 
 }

@@ -14,10 +14,6 @@ public class Door extends Decor {
         super(position);
     }
 
-    public boolean canBeOpened() {
-        return true;
-    }
-
     public boolean isBreakable() {
         return false;
     }

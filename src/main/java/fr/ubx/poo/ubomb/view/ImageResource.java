@@ -85,7 +85,7 @@ public enum ImageResource {
         return BOX.image;
     }
 
-    public static Image getBomb(int i,boolean b) {
+    public static Image getBomb(int i,boolean b) { //renvoie le sprite adapté au stade de la bombe
         if (b){
             return EXPLOSION.image;
         }
@@ -95,7 +95,7 @@ public enum ImageResource {
             return valueOf("BOMB_"+i).image;
         }
     }
-    public static Image getDoor(boolean bool){
+    public static Image getDoor(boolean bool){ //renvoie le sprite adapté au stade de la porte
         if (bool){
             return DOOR_OPENED.image;
         }

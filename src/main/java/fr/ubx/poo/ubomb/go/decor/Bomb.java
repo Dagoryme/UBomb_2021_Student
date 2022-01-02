@@ -29,7 +29,7 @@ public class Bomb extends Decor{
         return true;
     }
 
-    public void checkStatus(long now) {
+    public void checkStatus(long now) { //Permet de modifier le status de la bombe pour le sprite en fonction du temps
             if (now - init_time >= 1000 && hasExplodedtime==0) {
                 this.state = 3;
             }
@@ -41,11 +41,11 @@ public class Bomb extends Decor{
             }
             if (now - init_time >= 4000 && hasExplodedtime==0) {
                 this.state = 0;
-                this.hasExplodedtime = System.currentTimeMillis();
+                this.hasExplodedtime = System.currentTimeMillis(); //Commence un timer pour le temps du sprite d'explosion
                 this.hasExploded = true;
             }
             setModified(true);
-            if (now - hasExplodedtime >=1000 && this.state==0){
+            if (now - hasExplodedtime >=1000 && this.state==0){ //Si l'explosion dure depuis au moins 1 sec supprime le sprite
                 this.explosionEnded=true;
                 this.remove();
                 if (isExplosionSprite==false){

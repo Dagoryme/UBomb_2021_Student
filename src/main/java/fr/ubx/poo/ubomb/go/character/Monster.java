@@ -61,7 +61,7 @@ public class Monster extends GameObject implements Movable {
         Position nextPos = direction.nextPosition(getPosition());
         Grid grid = game.getGrid();
         Decor decor = grid.get(nextPos);
-        if (isInMap(nextPos) && isObject(nextPos)) {
+        if (isInMap(nextPos) && isObject(nextPos) && decor instanceof Door == false) {
             return true;
         }
         return false;

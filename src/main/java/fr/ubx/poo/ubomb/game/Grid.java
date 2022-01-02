@@ -31,6 +31,10 @@ public class Grid {
         return PosMonster;
     }
 
+    public void cleanPosMonster(){
+        PosMonster.clear();
+    }
+
     public int getWidth() {
         return width;
     }

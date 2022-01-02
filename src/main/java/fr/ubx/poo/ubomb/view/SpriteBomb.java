@@ -13,7 +13,7 @@ public class SpriteBomb extends Sprite {
     public void updateImage() {
         Bomb bomb = (Bomb) getGameObject();
         bomb.checkStatus(System.currentTimeMillis());
-        boolean b = bomb.gethasExploded();
+        boolean b = bomb.gethasExploded(); //Recupere le booleen pour savoir si la bombe a exploser
         Image image = getImage(bomb.getState(),b);
         setImage(image);
     }

@@ -18,7 +18,7 @@ public class Bomb_ND extends Bonus {
     public boolean isBreakable(){return true;}
 
 
-    public void takenBy(Player player) {
+    public void takenBy(Player player) { //applique l'effet du bonus
         if (player.getBombs()>1){
             player.setBombs(player.getBombs()-1);
             remove();

@@ -76,7 +76,7 @@ public final class GameEngine {
         statusBar = new StatusBar(root, sceneWidth, sceneHeight, game);
 
         // Create sprites
-        for (Decor decor : game.getGrid().values()) {
+        for (Decor decor : game.getGrid().values()) {//initialise tous les sprites du niveau
             if (decor instanceof Door){
                 sprites.add(new SpriteDoor(layer,decor));
                 decor.setModified(true);
@@ -90,6 +90,7 @@ public final class GameEngine {
             monsters.add(monster);
             sprites.add(new SpriteMonster(layer,monster));
         }
+        game.getGrid().cleanPosMonster();
         sprites.add(new SpritePlayer(layer, player));
     }
 
@@ -116,7 +117,7 @@ public final class GameEngine {
 
     private void monstersMove(){
         for (int i = 0 ; i < monsters.size() ; i ++){
-            if (System.currentTimeMillis()-monsters.get(i).getTimesincemove()>1000){
+            if (System.currentTimeMillis()-monsters.get(i).getTimesincemove()>1000){ //Attend 1 seconde avant de refaire un move pour le monstre
                 monsters.get(i).setTimesincemove(System.currentTimeMillis());
                 monsters.get(i).requestMove(Direction.random());
                 monsters.get(i).update(System.currentTimeMillis());
@@ -129,32 +130,32 @@ public final class GameEngine {
 
 
         for (int i=0;i<bombs.size();i++){
-            bombs.get(i).checkStatus(System.currentTimeMillis());
+            bombs.get(i).checkStatus(System.currentTimeMillis()); //verifie le status de la bombe
             if (bombs.get(i).gethasExploded() && bombs.get(i).getisExplosionSprite()==false && bombs.get(i).getIsExplosionDone()==false){
                 bombs.get(i).setExplosionDone(true);
                 Grid grid = game.getGrid();
                 int range = game.getPlayer().getBombrange();
                 Decor decor;
-                if (bombs.get(i).getPosition()==player.getPosition()){
+                if (bombs.get(i).getPosition()==player.getPosition()){ //verifie si  le joueur est touché par la bombe bombe initiale
                     player.getHit(System.currentTimeMillis());
                 }
-                for (int m=0;m<monsters.size();m++) {
+                for (int m=0;m<monsters.size();m++) { //verifie si un monstre est touché par la bombe bombe initiale
                     if (monsters.get(m).getPosition().getX() == bombs.get(i).getPosition().getX() && monsters.get(m).getPosition().getY() == bombs.get(i).getPosition().getY()) {
                         if (monsters.get(m).getHit()) {
                             monsters.remove(m);
                         }
                     }
                 }
-                for (int j=0;j<4;j++){
+                for (int j=0;j<4;j++){ //Verifie les 4 direction possible pour l'explosion
                     Direction direction = Direction.values()[j];
                     Position nextPos = direction.nextPosition(bombs.get(i).getPosition());
                     for (int k = 0; k<range;k++){
                         decor = grid.get(nextPos);
                         if (decor!=null){
-                            if (decor.isBreakable()==false){
+                            if (decor.isBreakable()==false){ //verifie si le decor est cassable ou non
                                 break;
                             }
-                            else if (decor.isBreakable()){
+                            else if (decor.isBreakable()){ // si le décor est cassable, le detruit et crée un sprite d'explosion
                                 Bomb bomb = new Bomb(game,nextPos,bombs.get(i).getInit_time());
                                 bombs.add(bomb);
                                 bomb.setisExplosionSprite(true);
@@ -164,16 +165,16 @@ public final class GameEngine {
                                 break;
                             }
                         }
-                        if (decor==null && player.isInMap(nextPos)){
+                        if (decor==null && player.isInMap(nextPos)){ //verifie si la bombe est dans la map
                             Bomb bomb = new Bomb(game,nextPos,bombs.get(i).getInit_time());
                             bombs.add(bomb);
                             bomb.setisExplosionSprite(true);
-                            sprites.add(new SpriteBomb(layer,bomb));
+                            sprites.add(new SpriteBomb(layer,bomb)); // crée un sprite d'explosion de bombe
                         }
-                        if (nextPos.getX() == player.getPosition().getX() &&nextPos.getY() == player.getPosition().getY()){
+                        if (nextPos.getX() == player.getPosition().getX() &&nextPos.getY() == player.getPosition().getY()){ //verifie si  le joueur est touché par l'explosion de la bombe
                             player.getHit(System.currentTimeMillis());
                         }
-                        for (int m=0;m<monsters.size();m++) {
+                        for (int m=0;m<monsters.size();m++) { //verifie si  un monstre est touché par l'explosion de la bombe
                             if (monsters.get(m).getPosition().getX() == nextPos.getX() && monsters.get(m).getPosition().getY() == nextPos.getY()) {
                                 if (monsters.get(m).getHit()) {
                                     monsters.remove(m);
@@ -186,7 +187,7 @@ public final class GameEngine {
                     }
                 }
             }
-            if (bombs.get(i).gethasExploded() && bombs.get(i).getexplosionEnded()){
+            if (bombs.get(i).gethasExploded() && bombs.get(i).getexplosionEnded()){ //supprime tous les sprites d'explosion
                 Grid grid = game.getGrid();
                 grid.remove(bombs.get(i).getPosition());
                 bombs.remove(i);
@@ -199,7 +200,7 @@ public final class GameEngine {
 
     private void checkCollision(long now) {
         for (int i=0;i<monsters.size();i++){
-            if (player.getPosition().getX()==monsters.get(i).getPosition().getX() && player.getPosition().getY()==monsters.get(i).getPosition().getY()){
+            if (player.getPosition().getX()==monsters.get(i).getPosition().getX() && player.getPosition().getY()==monsters.get(i).getPosition().getY()){ //verifie si le joueur est touché par un monstre
                 player.getHit(System.currentTimeMillis());
             }
         }
@@ -254,16 +255,18 @@ public final class GameEngine {
 
 
     private void update(long now) {
-        if (game.GridChange){
+        if (game.GridChange){ //vérifie si il y a eu un changement de monde
             sprites.forEach(Sprite::remove);
-            bombs.forEach(GameObject::remove);
-            monsters.forEach(GameObject::remove);
+            System.out.println(monsters);
+            monsters.forEach(Monster::remove);
+            monsters.clear();
+            System.out.println(monsters);
             int sceneWidth = (game.getGrid().getWidth()+1) * Sprite.size;
             stage.setWidth(sceneWidth);
             int sceneHeight = ((game.getGrid().getHeight()+1) * Sprite.size);
-            stage.setHeight(sceneHeight + StatusBar.height);
-            statusBar.updateStatusBar((game.getGrid().getWidth()) * Sprite.size,(game.getGrid().getHeight()) * Sprite.size);
-            for (Decor decor : game.getGrid().values()) {
+            stage.setHeight(sceneHeight + StatusBar.height); //modifie la taille de la fenetre
+            statusBar.updateStatusBar((game.getGrid().getWidth()) * Sprite.size,(game.getGrid().getHeight()) * Sprite.size); // adapte la barre a la taille de la fenetre
+            for (Decor decor : game.getGrid().values()) { //initialise tous les sprites du nouveau niveau
                 if (decor instanceof Door){
                     sprites.add(new SpriteDoor(layer,decor));
                     decor.setModified(true);
@@ -277,6 +280,7 @@ public final class GameEngine {
                 monsters.add(monster);
                 sprites.add(new SpriteMonster(layer,monster));
             }
+            game.getGrid().cleanPosMonster();
             sprites.add(new SpritePlayer(layer, player));
             render();
             game.GridChange=false;
