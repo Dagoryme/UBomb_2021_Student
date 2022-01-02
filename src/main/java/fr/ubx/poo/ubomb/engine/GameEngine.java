@@ -252,9 +252,24 @@ public final class GameEngine {
 
     private void update(long now) {
         if (game.GridChange){
-            cleanupSprites();
-            initialize();
-
+            sprites.forEach(Sprite::remove);
+            for (Decor decor : game.getGrid().values()) {
+                if (decor instanceof Door){
+                    sprites.add(new SpriteDoor(layer,decor));
+                    decor.setModified(true);
+                } else {
+                    sprites.add(SpriteFactory.create(layer, decor));
+                    decor.setModified(true);
+                }
+            }
+            for (int i=0;i<game.getGrid().getPosMonster().size();i++){
+                Monster monster = new Monster(game,game.getGrid().getPosMonster().get(i),1);
+                monsters.add(monster);
+                sprites.add(new SpriteMonster(layer,monster));
+            }
+            sprites.add(new SpritePlayer(layer, player));
+            render();
+            game.GridChange=false;
         }
         player.update(now);
 
