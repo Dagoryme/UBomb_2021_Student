@@ -19,9 +19,10 @@ import java.util.Properties;
 public class Game {
 
     public final int bombBagCapacity;
-    public final int monsterVelocity;
+    public int monsterVelocity;
     public int playerLives;
     public int levels;
+    public int levelnow;
     public final long playerInvisibilityTime;
     public final long monsterInvisibilityTime;
     public final String worldPath;
@@ -49,6 +50,7 @@ public class Game {
             Grid grid = gridRepo.load(1, prefix + 1);
             this.grid = grid;
             grids.add(grid);
+            this.levelnow=1;
             // Create the player
             String[] tokens = prop.getProperty("player").split("[ :x]+");
             if (tokens.length != 2)
@@ -68,20 +70,35 @@ public class Game {
     //chargement du prochain niveau
     public void loadNext(){
         if (this.GridChange==false){
-            this.levels=this.levels+1;
-            GridRepoFile fromfile= new GridRepoFile(this.getPlayer().game);
-            Grid nextgrid = fromfile.load(levels,this.worldPath);
-            this.grid=nextgrid;
-            player.setPosition(grid.getNextPosPlayer(false));
-            grids.add(nextgrid);
-            this.GridChange=true;
+            System.out.println(levelnow);
+            System.out.println(levels);
+            if(levelnow<levels){ // détecte si le niveau suivant a déja été load ou pas
+                this.monsterVelocity=this.monsterVelocity+5;
+                this.levelnow=this.levelnow+1;
+                this.grid=grids.get(levelnow-1); //recupere la grille dans la liste
+                player.setPosition(grid.getNextPosPlayer(false));
+                this.GridChange=true;
+
+            }
+            else {
+                this.monsterVelocity=this.monsterVelocity+5;
+                this.levels = this.levels + 1;
+                this.levelnow = this.levelnow + 1;
+                GridRepoFile fromfile = new GridRepoFile(this.getPlayer().game);
+                Grid nextgrid = fromfile.load(levelnow, this.worldPath);
+                this.grid = nextgrid;
+                player.setPosition(grid.getNextPosPlayer(false));
+                grids.add(nextgrid);
+                this.GridChange = true;
+            }
         }
     }
     //chargement du niveau précédent
     public void loadPrev(){
         if (this.GridChange==false){
-            this.levels=this.levels-1;
-            this.grid=grids.get(levels-1);
+            this.monsterVelocity=this.monsterVelocity-5;
+            this.levelnow=this.levelnow-1;
+            this.grid=grids.get(levelnow-1);
             player.setPosition(grid.getNextPosPlayer(true));
             this.GridChange=true;
         }
