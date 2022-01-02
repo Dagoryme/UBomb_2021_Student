@@ -17,6 +17,8 @@ public class Grid {
     private List<Position> PosMonster = new ArrayList<>();
     private Position nextPosPlayer;
     private final Map<Position, Decor> elements;
+    private List <Bomb> bombs = new ArrayList<>();
+    private List <Monster> monsters = new ArrayList<>();
 
 
     public Grid(int width, int height) {
@@ -40,6 +42,14 @@ public class Grid {
 
     public int getWidth() {
         return width;
+    }
+
+    public List<Bomb> getBombs(){
+        return this.bombs;
+    }
+
+    public List<Monster> getMonster(){
+        return this.monsters;
     }
 
     public int getHeight() {
