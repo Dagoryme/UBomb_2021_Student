@@ -2,7 +2,9 @@ package fr.ubx.poo.ubomb.game;
 
 import fr.ubx.poo.ubomb.go.decor.Decor;
 import fr.ubx.poo.ubomb.game.Position;
+import fr.ubx.poo.ubomb.go.decor.Door;
 import javafx.geometry.Pos;
+import static fr.ubx.poo.ubomb.game.EntityCode.DoorPrevOpened;
 
 import java.util.*;
 
@@ -40,7 +42,17 @@ public class Grid {
         this.nextPosPlayer = nextPosPlayer;
     }
 
-    public Position getNextPosPlayer() {
+    public Position getNextPosPlayer(boolean isPrev) {
+        if (isPrev) {
+            for (int i = 0; i < width; i++) {
+                for (int j = 0; j < height; j++) {
+                    Position position = new Position(i, j);
+                    if (get(position) instanceof Door){
+                        return position;
+                    }
+                }
+            }
+        }
         return nextPosPlayer;
     }
 

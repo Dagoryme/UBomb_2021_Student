@@ -163,9 +163,14 @@ public class Player extends GameObject implements Movable {
             ((Bonus) decor).takenBy(player);
         }
         setPosition(nextPos);
-        if (decor instanceof Door){
-            game.loadNext();
-            //((Door) decor).WorldChange();
+        if (decor instanceof Door && ((Door)decor).getIsOpened()){
+            System.out.println(((Door)decor).getisPrevious());
+            if (((Door)decor).getisPrevious()){
+                game.loadPrev();
+            }
+            else {
+                game.loadNext();
+            }
         }
     }
 

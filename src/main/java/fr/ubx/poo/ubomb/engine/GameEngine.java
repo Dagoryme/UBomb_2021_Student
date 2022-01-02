@@ -260,6 +260,7 @@ public final class GameEngine {
             int sceneHeight = (game.getGrid().getHeight()+1) * Sprite.size;
             stage.setHeight(sceneHeight);
             stage.setWidth(sceneWidth);
+            stage.sizeToScene();
             for (Decor decor : game.getGrid().values()) {
                 if (decor instanceof Door){
                     sprites.add(new SpriteDoor(layer,decor));

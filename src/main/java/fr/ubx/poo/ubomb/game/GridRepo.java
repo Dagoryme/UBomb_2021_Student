@@ -42,6 +42,11 @@ public abstract class GridRepo {
                 return new Door(pos);
             case DoorNextOpened:
                 return new Door(pos);
+            case DoorPrevOpened:
+                Door door = new Door(pos);
+                door.setIsOpened(true);
+                door.setisPrevious(true);
+                return door;
             case Box:
                 return new Box(pos);
             case Stone:

@@ -81,19 +81,22 @@ public class Game {
     public void loadNext(){
         if (this.GridChange==false){
             this.levels=this.levels+1;
-            System.out.println("levels fait");
             GridRepoFile fromfile= new GridRepoFile(this.getPlayer().game);
-            System.out.println("File fait");
             Grid nextgrid = fromfile.load(levels,this.worldPath);
             this.grid=nextgrid;
-            player.setPosition(grid.getNextPosPlayer());
+            player.setPosition(grid.getNextPosPlayer(false));
             grids.add(nextgrid);
             this.GridChange=true;
         }
     }
 
-    public void loadPrev(String path){
-        this.grid = grids.get(levels-2);
+    public void loadPrev(){
+        if (this.GridChange==false){
+            this.levels=this.levels-1;
+            this.grid=grids.get(levels-1);
+            player.setPosition(grid.getNextPosPlayer(true));
+            this.GridChange=true;
+        }
     }
 
 

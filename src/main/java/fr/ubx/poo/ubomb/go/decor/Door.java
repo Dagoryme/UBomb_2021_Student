@@ -34,17 +34,19 @@ public class Door extends Decor {
         return this.isOpened;
     }
 
+    public void setisPrevious(boolean isPrevious) {
+        this.isPrevious=isPrevious;
+    }
+
+    public boolean getisPrevious(){
+        return isPrevious;
+    }
+
     public boolean isWalkable(Player player) {
         if (this.isOpened == true) {
             return true;
         }
         return false;
-    }
-
-    public void WorldChange(){
-        System.out.println("ici");
-        game.loadNext();
-        System.out.println("erwan le suce bite");
     }
 
     public void OpenDoor(Player player){
