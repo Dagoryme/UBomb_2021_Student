@@ -76,16 +76,21 @@ public class StatusBar {
     }
 
     public void update(Game game) {
-        updateLevel(1);
+        updateLevel(game.levels);
         lives.setText(String.valueOf(game.getPlayer().getLives()));
         bombRange.setText(String.valueOf(game.getPlayer().getBombrange()));
-        if (game.getPlayer().getBombs()<0){          //évite d'afficher -1 lorsque que l'on ramasse un malus enlevant une bombe alors que toutes nos bombes sont posées
+        if (game.getPlayer().getBombs()<0){
             availableBombs.setText(String.valueOf(0));
         }
         else {
             availableBombs.setText(String.valueOf(game.getPlayer().getBombs()));
         }
         keys.setText(String.valueOf(game.getPlayer().getKeys()));
+    }
+
+    public void updateStatusBar( int sceneWidth, int sceneHeight){
+        hBox.relocate(0, sceneHeight);
+        hBox.setPrefSize(sceneWidth, game.getGrid().getHeight());
     }
 
 }

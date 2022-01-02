@@ -66,18 +66,6 @@ public class Game {
         return grid;
     }
 
-    public int getLevels() {
-        return this.levels;
-    }
-
-    public void setLevels(int levels){
-        this.levels=levels;
-    }
-
-    public String getWorldPath() {
-        return worldPath;
-    }
-
     public void loadNext(){
         if (this.GridChange==false){
             this.levels=this.levels+1;

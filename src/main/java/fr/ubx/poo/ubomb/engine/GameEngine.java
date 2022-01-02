@@ -257,10 +257,10 @@ public final class GameEngine {
             bombs.forEach(GameObject::remove);
             monsters.forEach(GameObject::remove);
             int sceneWidth = (game.getGrid().getWidth()+1) * Sprite.size;
-            int sceneHeight = (game.getGrid().getHeight()+1) * Sprite.size;
-            stage.setHeight(sceneHeight);
             stage.setWidth(sceneWidth);
-            stage.sizeToScene();
+            int sceneHeight = ((game.getGrid().getHeight()+1) * Sprite.size);
+            stage.setHeight(sceneHeight + StatusBar.height);
+            statusBar.updateStatusBar((game.getGrid().getWidth()) * Sprite.size,(game.getGrid().getHeight()) * Sprite.size);
             for (Decor decor : game.getGrid().values()) {
                 if (decor instanceof Door){
                     sprites.add(new SpriteDoor(layer,decor));
