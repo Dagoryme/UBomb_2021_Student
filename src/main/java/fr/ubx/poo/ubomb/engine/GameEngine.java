@@ -126,6 +126,8 @@ public final class GameEngine {
 
 
     private void checkExplosions() {
+
+
         for (int i=0;i<bombs.size();i++){
             bombs.get(i).checkStatus(System.currentTimeMillis());
             if (bombs.get(i).gethasExploded() && bombs.get(i).getisExplosionSprite()==false && bombs.get(i).getIsExplosionDone()==false){

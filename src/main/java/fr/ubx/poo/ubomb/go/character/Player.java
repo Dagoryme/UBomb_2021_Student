@@ -95,7 +95,6 @@ public class Player extends GameObject implements Movable {
         }
         if (decor instanceof Box){
             Position box = direction.nextPosition(nextPos);
-
             if(isInMap(box) && isEmpty(box)){
                 decor.setPosition(box);
                 grid.remove(nextPos);

@@ -22,12 +22,13 @@ public class Grid {
         this.elements = new Hashtable<>();
     }
 
-    public void addPosMonster(Position posmonster){
-        PosMonster.add(posmonster);
+    public void addPosMonster(Position pos){
+        PosMonster.add(pos);
     }
 
+
     public List<Position> getPosMonster() {
-        return this.PosMonster;
+        return PosMonster;
     }
 
     public int getWidth() {

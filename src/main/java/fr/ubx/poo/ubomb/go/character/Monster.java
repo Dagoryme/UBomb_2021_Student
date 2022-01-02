@@ -44,6 +44,7 @@ public class Monster extends GameObject implements Movable {
         this.lives = lives;
     }
 
+
     public Direction getDirection() {
         return this.direction;
     }
@@ -115,7 +116,6 @@ public class Monster extends GameObject implements Movable {
     }
 
     public void doMove(Direction direction) {
-        // Check if we need to pick something up
         Position nextPos = direction.nextPosition(getPosition());
         setPosition(nextPos);
     }
