@@ -172,10 +172,7 @@ public final class GameEngine {
                         }
                         for (int m=0;m<game.getGrid().getMonster().size();m++) { //verifie si  un monstre est touché par l'explosion de la bombe
                             if (game.getGrid().getMonster().get(m).getPosition().getX() == nextPos.getX() && game.getGrid().getMonster().get(m).getPosition().getY() == nextPos.getY()) {
-                                if (game.getGrid().getMonster().get(m).getHit()) {
-                                    game.getGrid().getMonster().remove(m);
-                                    break;
-                                }
+                                game.getGrid().getMonster().get(m).getHit();
                                 break;
                             }
                         }
@@ -269,7 +266,7 @@ public final class GameEngine {
             }
             if (game.getGrid().isNew()) { //verifie si la grille viens d'être load ou si elle existait avant
                 for (int i = 0; i < game.getGrid().getPosMonster().size(); i++) {
-                    Monster monster = new Monster(game, game.getGrid().getPosMonster().get(i), 1); // crée les monstres si la grille est nouvelle
+                    Monster monster = new Monster(game, game.getGrid().getPosMonster().get(i), 1+game.levelnow/2); // crée les monstres si la grille est nouvelle
                     game.getGrid().getMonster().add(monster);
                     sprites.add(new SpriteMonster(layer, monster));
                 }
