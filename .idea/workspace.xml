@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f91f8cb-93fc-461e-9f30-ae6b3bb5bb5f" name="Changes" comment="Grid RepoFile load done">
+    <list default="true" id="4f91f8cb-93fc-461e-9f30-ae6b3bb5bb5f" name="Changes" comment="World change">
       <change beforePath="$PROJECT_DIR$/.gradle/7.1.1/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1.1/dependencies-accessors/dependencies-accessors.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1.1/executionHistory/executionHistory.lock" afterDir="false" />
@@ -13,6 +13,8 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/engine/GameEngine$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/engine/GameEngine$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/engine/GameEngine$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/engine/GameEngine$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/engine/GameEngine.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/fr/ubx/poo/ubomb/engine/GameEngine.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/ubx/poo/ubomb/engine/GameEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ubx/poo/ubomb/engine/GameEngine.java" afterDir="false" />
@@ -326,7 +328,14 @@
       <option name="project" value="LOCAL" />
       <updated>1641134626646</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="World change">
+      <created>1641135906355</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1641135906355</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -373,12 +382,12 @@
     <MESSAGE value="Bomb explosions hit monsters" />
     <MESSAGE value="Monsters go brrrrr" />
     <MESSAGE value="Monsters moves go brrrrr" />
-    <MESSAGE value="World change" />
     <MESSAGE value="World change GridRepoFile" />
     <MESSAGE value="Grid RepoFile modif" />
     <MESSAGE value="Grid RepoFile load from file fix" />
     <MESSAGE value="Grid RepoFile load done" />
-    <option name="LAST_COMMIT_MESSAGE" value="Grid RepoFile load done" />
+    <MESSAGE value="World change" />
+    <option name="LAST_COMMIT_MESSAGE" value="World change" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

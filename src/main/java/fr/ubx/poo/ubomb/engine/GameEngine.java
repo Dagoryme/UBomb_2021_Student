@@ -8,6 +8,7 @@ import fr.ubx.poo.ubomb.game.Direction;
 import fr.ubx.poo.ubomb.game.Game;
 import fr.ubx.poo.ubomb.game.Grid;
 import fr.ubx.poo.ubomb.game.Position;
+import fr.ubx.poo.ubomb.go.GameObject;
 import fr.ubx.poo.ubomb.go.character.Monster;
 import fr.ubx.poo.ubomb.go.character.Player;
 import fr.ubx.poo.ubomb.go.decor.*;
@@ -253,6 +254,12 @@ public final class GameEngine {
     private void update(long now) {
         if (game.GridChange){
             sprites.forEach(Sprite::remove);
+            bombs.forEach(GameObject::remove);
+            monsters.forEach(GameObject::remove);
+            int sceneWidth = (game.getGrid().getWidth()+1) * Sprite.size;
+            int sceneHeight = (game.getGrid().getHeight()+1) * Sprite.size;
+            stage.setHeight(sceneHeight);
+            stage.setWidth(sceneWidth);
             for (Decor decor : game.getGrid().values()) {
                 if (decor instanceof Door){
                     sprites.add(new SpriteDoor(layer,decor));
