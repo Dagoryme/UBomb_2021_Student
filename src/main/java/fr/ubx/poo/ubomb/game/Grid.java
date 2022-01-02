@@ -19,6 +19,7 @@ public class Grid {
     private final Map<Position, Decor> elements;
     private List <Bomb> bombs = new ArrayList<>();
     private List <Monster> monsters = new ArrayList<>();
+    private boolean isNew;
 
 
     public Grid(int width, int height) {
@@ -50,6 +51,14 @@ public class Grid {
 
     public List<Monster> getMonster(){
         return this.monsters;
+    }
+
+    public boolean isNew() {
+        return isNew;
+    }
+
+    public void setNew(boolean New) {
+        isNew = New;
     }
 
     public int getHeight() {

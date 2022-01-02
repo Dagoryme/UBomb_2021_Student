@@ -267,16 +267,25 @@ public final class GameEngine {
                     decor.setModified(true);
                 }
             }
-            for (int i=0;i<game.getGrid().getPosMonster().size();i++){
-                Monster monster = new Monster(game,game.getGrid().getPosMonster().get(i),1);
-                game.getGrid().getMonster().add(monster);
-                sprites.add(new SpriteMonster(layer,monster));
+            if (game.getGrid().isNew()) { //verifie si la grille viens d'être load ou si elle existait avant
+                for (int i = 0; i < game.getGrid().getPosMonster().size(); i++) {
+                    Monster monster = new Monster(game, game.getGrid().getPosMonster().get(i), 1); // crée les monstres si la grille est nouvelle
+                    game.getGrid().getMonster().add(monster);
+                    sprites.add(new SpriteMonster(layer, monster));
+                }
+            }else{
+                for (int i=0; i<game.getGrid().getMonster().size();i++){
+                    sprites.add(new SpriteMonster(layer,game.getGrid().getMonster().get(i))); //recrée les sprites des monstres si ils éxistent deja
+                }
             }
             game.getGrid().getPosMonster().clear(); //Vide la liste des positions des monstre afin d'éviter les duplications
             sprites.add(new SpritePlayer(layer, player));
             render();
             for (int i=0;i<game.getGrid().getBombs().size();i++){
                 sprites.add(new SpriteBomb(layer,game.getGrid().getBombs().get(i)));
+            }
+            if (game.getGrid().isNew()){
+                game.getGrid().setNew(false);
             }
             game.GridChange=false;
         }

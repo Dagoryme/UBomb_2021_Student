@@ -89,6 +89,7 @@ public class Game {
                 this.grid = nextgrid;
                 player.setPosition(grid.getNextPosPlayer(false));
                 grids.add(nextgrid);
+                grid.setNew(true);
                 this.GridChange = true;
             }
         }
