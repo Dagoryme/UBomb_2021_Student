@@ -98,6 +98,7 @@ public class Player extends GameObject implements Movable {
             // on regarde si la position suivante est disponible et qu'elle est dans la carte
             Position box = direction.nextPosition(nextPos);
             for (int i = 0 ; i < grid.getMonster().size() ; i++){
+                // on vérifie que ce n'est pas sur un monstre
                 if (grid.getMonster().get(i).getPosition().getX()== box.getX() &&
                         grid.getMonster().get(i).getPosition().getY()== box.getY()){
                     return false;
